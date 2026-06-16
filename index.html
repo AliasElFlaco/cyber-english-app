@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cyber English Pro | Plan Piloto</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- NAV BAR GALÁCTICA -->
+    <nav class="galaxy-nav">
+      <div class="nav-logo">CYBER<span>ENGLISH</span></div>
+      <div class="nav-links">
+        <a href="#" class="active">Misión Actual</a>
+        <a href="#">Rendimiento</a>
+        <a href="#">Bitácora</a>
+      </div>
+      <div class="user-status">🧑‍🚀 CADETE</div>
+    </nav>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <main class="dashboard-space">
+      <!-- BARRA DE PROGRESO CÓSMICA -->
+      <div class="progress-container">
+        <div id="progress-bar" class="progress-neon"></div>
+      </div>
+
+      <!-- PANTALLA HOLOGRÁFICA (VISTA) -->
+      <section class="card-hologram">
+        <div class="hud-header">
+          <span id="hud-status" class="hud-status">SISTEMA: EN LÍNEA</span>
+          <span id="hud-score" class="hud-mission">SCORE: 000</span>
+        </div>
+
+        <h2 class="title-cosmic">Traduce la frase al español:</h2>
+
+        <!-- Inyección dinámica -->
+        <p id="phrase-to-translate" class="phrase-target">
+          Iniciando enlace de datos...
+        </p>
+        <div id="options-container" class="options-grid"></div>
+      </section>
+
+      <!-- PANEL DE FEEDBACK FLOTANTE -->
+      <div id="feedback-panel" class="feedback-panel hidden">
+        <p id="feedback-message"></p>
+        <button id="next-btn" class="btn-neon-action">
+          Siguiente Misión 🚀
+        </button>
+      </div>
+    </main>
+
+    <!-- CARGA DE LA ARQUITECTURA MVC -->
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
