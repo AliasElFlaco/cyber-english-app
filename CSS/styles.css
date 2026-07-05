@@ -42,21 +42,16 @@ body {
 }
 
 /* 🛸 NAVBAR CRISTALINA RESTRUCTURADA (Estilo image_54dbe5.png) */
-/* 🛸 NAVBAR CRISTALINA CON EFECTO LIGHT UP Y BORDES DEFINIDOS */
+/* 🛸 NAVBAR PREMIUM: LIGHT UP PERMANENTE Y CORRECCIÓN DE BUGS */
 .galaxy-nav {
   position: fixed;
   top: 20px;
   width: 95%;
   max-width: 1250px;
-  background: rgba(
-    10,
-    25,
-    35,
-    0.25
-  ); /* Un poco más de tono para resaltar el cristal */
-  backdrop-filter: blur(30px) saturate(180%);
-  -webkit-backdrop-filter: blur(30px) saturate(180%);
-  border-radius: 28px;
+  background: rgba(4, 12, 22, 0.4); /* Un toque más denso para contrastar */
+  backdrop-filter: blur(35px) saturate(200%);
+  -webkit-backdrop-filter: blur(35px) saturate(200%);
+  border-radius: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -64,14 +59,11 @@ body {
   box-sizing: border-box;
   z-index: 100;
 
-  /* Bordes tridimensionales mucho más definidos */
-  border-top: 1px solid rgba(255, 255, 255, 0.25); /* Más luz en el borde superior */
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(0, 0, 0, 0.8);
   border-right: 1px solid rgba(0, 0, 0, 0.7);
-  box-shadow:
-    0 25px 50px rgba(0, 0, 0, 0.9),
-    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
 }
 
 .nav-links {
@@ -80,62 +72,54 @@ body {
   gap: 12px;
 }
 
-/* BOTONES CON EFECTO LIGHT UP CONSTANTE */
+/* EFECTO VERDE CRISTALINO VIVO POR DEFECTO */
 .nav-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  min-width: 120px;
-  padding: 12px 10px;
+  min-width: 125px;
+  padding: 14px 10px;
   border-radius: 18px;
 
-  /* Light up por defecto: Base turquesa cristalina translúcida para dar más vida */
-  background: rgba(0, 229, 255, 0.04);
-  color: #a3b8cc; /* Texto más claro para mejor lectura */
+  /* Incrementamos la presencia del verde turquesa de fondo en reposo */
+  background: rgba(0, 229, 255, 0.08);
+  color: #e2e8f0; /* Texto claro de alta visibilidad */
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Bordes de cristal individuales definidos */
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  border-left: 1px solid rgba(255, 255, 255, 0.12);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-  border-right: 1px solid rgba(0, 0, 0, 0.4);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  border-right: 1px solid rgba(0, 0, 0, 0.5);
   box-shadow:
-    0 4px 10px rgba(0, 0, 0, 0.3),
-    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    0 6px 15px rgba(0, 0, 0, 0.4),
+    inset 0 1px 2px rgba(255, 255, 255, 0.1);
 }
 
-.icon-wrapper {
-  font-size: 1.2rem;
+/* Iconos brillando en verde desde el inicio */
+.nav-item .icon-wrapper {
+  font-size: 1.25rem;
   margin-bottom: 6px;
-  color: rgba(
-    0,
-    229,
-    255,
-    0.75
-  ); /* Los iconos brillan en turquesa sutil desde el inicio */
+  color: #00f5d4;
+  text-shadow: 0 0 10px rgba(0, 245, 212, 0.4);
   transition:
     transform 0.3s ease,
     color 0.3s;
-  text-shadow: 0 0 8px rgba(0, 229, 255, 0.3);
 }
 
-.nav-text {
+.nav-item .nav-text {
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.3px;
 }
 
-/* MICRO-INTERACCIÓN HOVER INTERMEDIA */
+/* Hover: Se enciende al máximo */
 .nav-item:hover {
   color: #ffffff;
-  background: rgba(0, 229, 255, 0.09); /* Enciende más al pasar el mouse */
+  background: rgba(0, 229, 255, 0.18);
   transform: translateY(-2px);
-  border-top-color: rgba(255, 255, 255, 0.3);
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.5),
-    0 0 10px rgba(0, 229, 255, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 229, 255, 0.15);
 }
 
 .nav-item:hover .icon-wrapper {
@@ -143,25 +127,22 @@ body {
   color: #ffffff;
 }
 
-/* 🔥 ESTADO ACTIVO: TURQUESA SÓLIDO LÍQUIDO CON GLOW MAXIMO */
+/* EL BOTÓN ACTIVO TOTALMENTE ENCENDIDO (Sólido líquido) */
 .nav-item.active {
-  color: #020408;
-  background: linear-gradient(135deg, #00f5d4, var(--light-turquoise));
+  color: #020408 !important;
+  background: linear-gradient(135deg, #00f5d4, #00e5ff) !important;
   font-weight: 800;
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-left: 1px solid rgba(255, 255, 255, 0.4);
-
-  box-shadow:
-    0 0 25px rgba(0, 229, 255, 0.55),
-    inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.6);
 }
 
 .nav-item.active .icon-wrapper {
-  color: #020408;
-  text-shadow: none;
+  color: #020408 !important;
+  text-shadow: none !important;
 }
 
-/* BOTÓN DE USUARIO / SIGN IN / REGISTER EXCLUSIVO */
+/* 🔑 FIX DEL BOTÓN SIGN IN / REGISTER */
 .user-status {
   display: flex;
   align-items: center;
@@ -169,25 +150,24 @@ body {
   font-size: 0.75rem;
   font-weight: 700;
   cursor: pointer;
-  background: rgba(0, 229, 255, 0.03);
+  background: rgba(0, 229, 255, 0.05);
   border-top: 1px solid rgba(0, 229, 255, 0.4);
   border-left: 1px solid rgba(0, 229, 255, 0.4);
   border-bottom: 1px solid rgba(0, 0, 0, 0.6);
   border-right: 1px solid rgba(0, 0, 0, 0.6);
-  padding: 10px 18px;
+  padding: 12px 20px;
   border-radius: 16px;
-  color: var(--light-turquoise);
+  color: #00e5ff;
   transition: all 0.2s ease;
-  box-shadow:
-    0 6px 15px rgba(0, 0, 0, 0.4),
-    inset 0 1px 1px rgba(0, 229, 255, 0.1);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
+/* Solución del defecto: Forzamos el color negro puro en el texto e icono al hacer hover */
 .user-status:hover {
-  background: var(--light-turquoise);
-  color: #020408;
-  box-shadow: 0 0 20px var(--light-turquoise);
-  transform: translateY(-1px);
+  background: #00e5ff !important;
+  color: #000000 !important;
+  box-shadow: 0 0 25px #00e5ff;
+  transform: translateY(-2px);
 }
 
 /* CONTENEDOR PANORÁMICO */
