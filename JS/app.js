@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const model = new JuegoModel();
-  const view = new JuegoView();
-  const controller = new JuegoController(model, view);
+  const model = new RoadmapModel();
+  const view = new RoadmapView();
+  const controller = new RoadmapController(model, view);
 });

@@ -1,115 +1,48 @@
-class JuegoView {
+class RoadmapView {
   constructor() {
-    this.txtFrase = document.getElementById("phrase-to-translate");
-    this.containerOpciones = document.getElementById("options-container");
-    this.barraProgreso = document.getElementById("progress-bar");
-    this.hudScore = document.getElementById("hud-score");
-    this.hudStatus = document.getElementById("hud-status");
-    this.panelFeedback = document.getElementById("feedback-panel");
-    this.msgFeedback = document.getElementById("feedback-message");
-    this.btnNext = document.getElementById("next-btn");
-
-    // Inicializar el contexto de audio del navegador
-    this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    // Seleccionamos el contenedor que actualmente está vacío en tu HTML
+    this.container = document.getElementById("roadmap-container");
+    this.btnComenzar = document.getElementById("start-mission-btn");
   }
 
-  // Sintetizador de sonido galáctico para el Hover (Tono suave ascendente)
-  playHoverSound() {
-    const osc = this.audioCtx.createOscillator();
-    const gain = this.audioCtx.createGain();
+  // Generador dinámico de tarjetas de cristal líquido
+  dibujarRoadmap(fases) {
+    this.container.innerHTML = ""; // Limpiamos carga inicial
 
-    osc.type = "sine"; // Onda suave
-    osc.frequency.setValueAtTime(400, this.audioCtx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(
-      800,
-      this.audioCtx.currentTime + 0.15,
-    );
+    fases.forEach((fase) => {
+      // 1. Crear la tarjeta principal
+      const card = document.createElement("article");
+      card.classList.add("phase-card");
 
-    gain.gain.setValueAtTime(0.03, this.audioCtx.currentTime); // Volumen bajo para que no sature
-    gain.gain.exponentialRampToValueAtTime(
-      0.001,
-      this.audioCtx.currentTime + 0.15,
-    );
+      // 2. Construir la lista de meses dinámicamente
+      let mesesHTML = "";
+      fase.meses.forEach((mes) => {
+        mesesHTML += `<li>${mes}</li>`;
+      });
 
-    osc.connect(gain);
-    gain.connect(this.audioCtx.destination);
-    osc.start();
-    osc.stop(this.audioCtx.currentTime + 0.15);
-  }
+      // 3. Estructurar el esqueleto interno con los datos del modelo
+      card.innerHTML = `
+                <div class="phase-card-header">
+                    <span class="phase-badge">${fase.numeroFase}</span>
+                    <span class="phase-weeks">${fase.semanas}</span>
+                </div>
+                <h3>${fase.titulo}</h3>
+                <ul class="phase-months-list">
+                    ${mesesHTML}
+                </ul>
+                <div class="phase-card-footer">
+                    <div class="glow-icon">${fase.iconos[0]}</div>
+                    <div class="glow-icon">${fase.iconos[1]}</div>
+                </div>
+            `;
 
-  // Sintetizador de sonido para el Click (Efecto láser digital)
-  playClickSound() {
-    const osc = this.audioCtx.createOscillator();
-    const gain = this.audioCtx.createGain();
-
-    osc.type = "triangle"; // Onda más digital
-    osc.frequency.setValueAtTime(880, this.audioCtx.currentTime);
-    osc.frequency.exponentialRampToValueAtTime(
-      110,
-      this.audioCtx.currentTime + 0.2,
-    );
-
-    gain.gain.setValueAtTime(0.1, this.audioCtx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(
-      0.001,
-      this.audioCtx.currentTime + 0.2,
-    );
-
-    osc.connect(gain);
-    gain.connect(this.audioCtx.destination);
-    osc.start();
-    osc.stop(this.audioCtx.currentTime + 0.2);
-  }
-
-  mostrarMision(pregunta, score, progreso) {
-    this.panelFeedback.classList.add("hidden");
-    this.txtFrase.textContent = pregunta.frase;
-    this.hudScore.textContent = `SCORE: ${String(score).padStart(3, "0")}`;
-    this.barraProgreso.style.width = `${progreso}%`;
-    this.hudStatus.textContent = "SISTEMA: EN LÍNEA";
-    this.hudStatus.style.color = "var(--deep-turquoise)";
-
-    this.containerOpciones.innerHTML = "";
-    pregunta.opciones.forEach((opcion) => {
-      const btn = document.createElement("button");
-      btn.classList.add("option-btn");
-      btn.textContent = opcion;
-
-      // Escuchar el Hover para activar el sonido galáctico
-      btn.addEventListener("mouseenter", () => this.playHoverSound());
-
-      this.containerOpciones.appendChild(btn);
+      // 4. Inyectar la tarjeta en la rejilla del documento
+      this.container.appendChild(card);
     });
   }
 
-  mostrarResultado(esCorrecto, msg) {
-    this.panelFeedback.classList.remove("hidden");
-    this.msgFeedback.textContent = msg;
-
-    if (esCorrecto) {
-      this.msgFeedback.style.color = "var(--electric-blue)";
-      this.hudStatus.textContent = "SISTEMA: SINCRONIZADO";
-      this.hudStatus.style.color = "var(--electric-blue)";
-    } else {
-      this.msgFeedback.style.color = "#ff3366";
-      this.hudStatus.textContent = "SISTEMA: ERROR DE ENLACE";
-      this.hudStatus.style.color = "#ff3366";
-    }
-  }
-
-  bindSeleccionarOpcion(handler) {
-    this.containerOpciones.addEventListener("click", (e) => {
-      if (e.target.classList.contains("option-btn")) {
-        this.playClickSound(); // Sonido al hacer click
-        handler(e.target.textContent);
-      }
-    });
-  }
-
-  bindSiguienteMision(handler) {
-    this.btnNext.addEventListener("click", () => {
-      this.playClickSound();
-      handler();
-    });
+  // Escuchador profesional para el botón inferior
+  bindClickComenzar(handler) {
+    this.btnComenzar.addEventListener("click", handler);
   }
 }

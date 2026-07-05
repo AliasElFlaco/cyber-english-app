@@ -1,61 +1,55 @@
-class Pregunta {
-  constructor(id, frase, opciones, correcta) {
+class FaseRoadmap {
+  constructor(id, numeroFase, semanas, titulo, meses, iconos) {
     this.id = id;
-    this.frase = frase;
-    this.opciones = opciones;
-    this.correcta = correcta;
+    this.numeroFase = numeroFase; // Ejemplo: "FASE 1"
+    this.semanas = semanas; // Ejemplo: "W1 - W8"
+    this.titulo = titulo; // Ejemplo: "Fundamentos del Acento..."
+    this.meses = meses; // Array con los meses e información
+    this.iconos = iconos; // Iconos decorativos inferiores
   }
 }
 
-class JuegoModel {
+class RoadmapModel {
   constructor() {
-    // Banco de datos simulando misiones espaciales de traducción
-    this.bancoPreguntas = [
-      new Pregunta(
+    // Mapeo exacto de los datos de tu segunda imagen
+    this.fases = [
+      new FaseRoadmap(
         1,
-        "I need to fix this bug as soon as possible",
+        "FASE 1",
+        "W1 - W8",
+        "Fundamentos del Acento y Gramática",
         [
-          "Necesito reparar este error lo antes posible",
-          "Quiero cocinar algo rápido hoy",
-          "Tengo que comprar una computadora nueva",
+          "Mes 1: Articulación Vocal y Pronunciación R",
+          "Mes 2: Estructuras Básicas y Tiempos Presentes",
         ],
-        "Necesito reparar este error lo antes posible",
+        ["💡", "👂"],
       ),
-
-      new Pregunta(
+      new FaseRoadmap(
         2,
-        "Let's schedule a meeting to sync our deployment",
+        "FASE 2",
+        "W9 - W16",
+        "Fluidez y Conversión Intermedia",
         [
-          "Vamos a comer pizza después del trabajo",
-          "Programemos una reunión para sincronizar nuestro despliegue",
-          "El servidor se cayó por completo",
+          "Mes 3: Construcción de Vocabulario y Expresiones Idiomáticas",
+          "Mes 4: Tiempos Pasados y Futuros con Confianza",
         ],
-        "Programemos una reunión para sincronizar nuestro despliegue",
+        ["👥", "💬"],
+      ),
+      new FaseRoadmap(
+        3,
+        "FASE 3",
+        "W17 - W24",
+        "Maestría Profesional y Situacional",
+        [
+          "Mes 5: Dominio del Subjuntivo y Condicionales",
+          "Mes 6: Inglés de Negocios y Sprints de Escucha en el Mundo Real",
+        ],
+        ["💼", "🏆"],
       ),
     ];
-    this.indiceActual = 0;
-    this.score = 0;
   }
 
-  getPreguntaActual() {
-    return this.bancoPreguntas[this.indiceActual];
-  }
-
-  verificarRespuesta(respuesta) {
-    const esCorrecta = this.getPreguntaActual().correcta === respuesta;
-    if (esCorrecta) this.score += 100;
-    return esCorrecta;
-  }
-
-  siguientePregunta() {
-    if (this.indiceActual < this.bancoPreguntas.length - 1) {
-      this.indiceActual++;
-      return true;
-    }
-    return false; // No hay más preguntas
-  }
-
-  getProgresoPorcentaje() {
-    return ((this.indiceActual + 1) / this.bancoPreguntas.length) * 100;
+  obtenerFases() {
+    return this.fases;
   }
 }
