@@ -1,10 +1,11 @@
 :root {
-  --bg-space: #020204;
+  --bg-space: #050b14;
   --electric-blue: #00e5ff;
   --deep-turquoise: #00a896;
-  --neon-glow: rgba(0, 229, 255, 0.3);
-  --glass-bg: rgba(10, 15, 30, 0.4);
-  --glass-border: rgba(0, 229, 255, 0.15);
+  --neon-glow: rgba(0, 229, 255, 0.25);
+  --glass-liquid: rgba(255, 255, 255, 0.02);
+  --glass-border-light: rgba(255, 255, 255, 0.1);
+  --glass-border-dark: rgba(0, 0, 0, 0.6);
 }
 
 body {
@@ -20,228 +21,247 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   overflow-x: hidden;
+  /* Fondo tecnológico con circuitos y estrellas difusas sugerido en la imagen */
   background-image:
     radial-gradient(
       circle at 10% 20%,
-      rgba(0, 229, 255, 0.06) 0%,
+      rgba(0, 229, 255, 0.05) 0%,
       transparent 40%
     ),
     radial-gradient(
-      circle at 90% 80%,
-      rgba(0, 168, 150, 0.08) 0%,
-      transparent 45%
+      circle at 90% 30%,
+      rgba(0, 168, 150, 0.06) 0%,
+      transparent 50%
     ),
-    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+    radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
   background-size:
     100% 100%,
     100% 100%,
-    40px 40px;
+    30px 30px;
 }
 
-/* NAVBAR GALÁCTICA */
+/* NAVBAR FLOTANTE INTEGRADA MILIMÉTRICAMENTE */
 .galaxy-nav {
   position: fixed;
   top: 20px;
   width: 90%;
-  max-width: 1000px;
-  background: rgba(5, 8, 15, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  max-width: 1100px;
+  background: rgba(5, 11, 20, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 12px 30px;
   box-sizing: border-box;
   z-index: 100;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-top: 1px solid var(--glass-border-light);
+  border-left: 1px solid var(--glass-border-light);
+  border-bottom: 1px solid var(--glass-border-dark);
+  border-right: 1px solid var(--glass-border-dark);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
 }
 
 .nav-logo {
   font-weight: 800;
   letter-spacing: 2px;
-  color: #fff;
 }
 .nav-logo span {
   color: var(--electric-blue);
 }
-
+.nav-links {
+  display: flex;
+  gap: 8px;
+}
 .nav-links a {
-  color: #a0aec0;
+  color: #718096;
   text-decoration: none;
-  margin: 0 15px;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  transition: color 0.3s;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
 }
 .nav-links a.active,
 .nav-links a:hover {
-  color: var(--electric-blue);
-  text-shadow: 0 0 8px var(--neon-glow);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.1),
+    0 4px 10px rgba(0, 0, 0, 0.4);
 }
-
 .user-status {
-  font-size: 0.8rem;
-  font-family: monospace;
-  border: 1px solid var(--deep-turquoise);
-  padding: 4px 10px;
-  border-radius: 20px;
-  color: var(--deep-turquoise);
+  font-size: 0.75rem;
+  border: 1px solid var(--electric-blue);
+  padding: 4px 12px;
+  border-radius: 12px;
+  color: var(--electric-blue);
 }
 
-/* ESPACIO DE TRABAJO */
-.dashboard-space {
-  width: 100%;
-  max-width: 550px;
+/* CONTENEDOR PANORÁMICO */
+.roadmap-space {
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 120px;
   padding: 20px;
   box-sizing: border-box;
-  margin-top: 100px;
+  text-align: center;
 }
 
-.card-hologram {
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
-  border-radius: 24px;
-  padding: 40px;
-  box-shadow:
-    0 25px 50px -12px rgba(0, 0, 0, 0.7),
-    0 0 30px rgba(0, 168, 150, 0.1);
+.roadmap-header {
+  margin-bottom: 50px;
 }
 
-.hud-header {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.7rem;
-  letter-spacing: 2px;
-  color: var(--deep-turquoise);
-  margin-bottom: 25px;
-  font-family: monospace;
-}
-
-.title-cosmic {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #718096;
-  margin: 0 0 10px 0;
-}
-
-.phrase-target {
-  font-size: 1.6rem;
+.hero-title {
+  font-size: 2rem;
   font-weight: 700;
-  margin-bottom: 30px;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  letter-spacing: -0.5px;
+  margin-bottom: 15px;
 }
 
-.options-grid {
+.hero-subtitle {
+  font-size: 1rem;
+  color: #a0aec0;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  color: var(--electric-blue);
+  text-align: left;
+  margin-bottom: 30px;
+  border-bottom: 2px solid var(--deep-turquoise);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* REJILLA DE TRES COLUMNAS PARA LAS FASES (Mismo aspecto que image_43fe49.jpg) */
+.phases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+/* TARJETAS NEUMÓRFICAS DE CRISTAL LÍQUIDO */
+.phase-card {
+  background: var(--glass-liquid);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 24px;
+  padding: 30px;
+  text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-}
-
-/* BOTONES INTERACTIVOS */
-/* BOTONES INTERACTIVOS - CRISTAL LÍQUIDO Y RAYOS NEÓN */
-.option-btn {
-  background: rgba(255, 255, 255, 0.03); /* Base hiper-translúcida */
-  backdrop-filter: blur(12px); /* Esmerilado de cristal */
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #e2e8f0;
-  padding: 18px 25px;
-  border-radius: 16px;
-  cursor: pointer;
-  font-size: 1rem;
-  text-align: left;
-  position: relative;
-  overflow: hidden;
-  /* Transición suave para simular la fluidez del cristal líquido */
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-}
-
-/* Efecto Hover: Expansión de rayos azules y destellos */
-.option-btn:hover {
-  color: #ffffff;
-  background: rgba(0, 229, 255, 0.05);
-  border-color: var(--electric-blue);
-  transform: translateY(-2px) scale(1.01);
-
-  /* Sombra exterior que simula la emisión de rayos de luz azul */
+  justify-content: space-between;
+  border-top: 1px solid var(--glass-border-light);
+  border-left: 1px solid var(--glass-border-light);
+  border-bottom: 1px solid var(--glass-border-dark);
+  border-right: 1px solid var(--glass-border-dark);
   box-shadow:
-    0 0 20px rgba(0, 229, 255, 0.4),
-    inset 0 0 12px rgba(0, 229, 255, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    0 20px 45px rgba(0, 0, 0, 0.6),
+    inset 0 1px 3px rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease;
 }
 
-/* El Rayo Líquido: Un reflejo que cruza el botón al pasar el mouse */
-.option-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(0, 229, 255, 0.2),
-    transparent
-  );
-  transform: skewX(-25deg);
-  transition: none;
+.phase-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 229, 255, 0.3);
+  box-shadow:
+    0 25px 50px rgba(0, 229, 255, 0.05),
+    0 20px 45px rgba(0, 0, 0, 0.6);
 }
 
-.option-btn:hover::before {
-  left: 150%;
-  transition: all 0.6s ease-in-out;
+.phase-card-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: var(--deep-turquoise);
+  font-family: monospace;
+  margin-bottom: 15px;
 }
 
-/* PROGRESO */
-.progress-container {
-  background: rgba(255, 255, 255, 0.03);
-  height: 4px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+.phase-badge {
+  background: rgba(0, 168, 150, 0.15);
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-weight: 600;
 }
 
-.progress-neon {
-  height: 100%;
-  width: 0%;
+.phase-card h3 {
+  font-size: 1.15rem;
+  margin: 0 0 20px 0;
+  color: #fff;
+}
+
+.phase-months-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+.phase-months-list li {
+  font-size: 0.9rem;
+  color: #cbd5e1;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.phase-months-list li::before {
+  content: "●";
+  color: var(--electric-blue);
+  font-size: 0.8rem;
+  text-shadow: 0 0 8px var(--electric-blue);
+}
+
+/* ICONOS RESPLANDECIENTES INFERIORES */
+.phase-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 15px;
+}
+
+.glow-icon {
+  font-size: 1.3rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 229, 255, 0.03);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.1);
+  color: var(--electric-blue);
+  text-shadow: 0 0 8px var(--electric-blue);
+}
+
+/* ⚡ BOTÓN INFERIOR DE ALTA VELOCIDAD DE LA IMAGEN */
+.btn-galaxy-action {
   background: linear-gradient(
     90deg,
     var(--deep-turquoise),
     var(--electric-blue)
   );
-  box-shadow: 0 0 12px var(--electric-blue);
-  transition: width 0.4s ease;
-}
-
-/* FEEDBACK */
-.feedback-panel {
-  margin-top: 20px;
-  padding: 20px;
-  border-radius: 16px;
-  text-align: center;
-  background: rgba(5, 8, 15, 0.8);
-  border: 1px solid var(--glass-border);
-}
-
-.btn-neon-action {
-  background: var(--electric-blue);
   border: none;
-  color: #000;
-  padding: 12px 25px;
-  font-weight: 600;
-  border-radius: 8px;
+  color: #030712;
+  padding: 16px 45px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 30px;
   cursor: pointer;
-  box-shadow: 0 0 15px var(--electric-blue);
+  box-shadow: 0 0 25px var(--electric-blue);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.hidden {
-  display: none !important;
+.btn-galaxy-action:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 40px var(--electric-blue);
 }
