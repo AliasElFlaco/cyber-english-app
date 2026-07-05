@@ -336,3 +336,119 @@ body {
   transform: translateY(-3px) scale(1.02);
   box-shadow: 0 0 40px var(--electric-blue);
 }
+
+/* 🧪 ICONO FLUIDO REFRESCADO DE LA NAVBAR (Inspirado en Gemini_Generated_Image_l98numl98numl98n.png) */
+.logo-fluid-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: radial-gradient(circle at 35% 35%, #00f5d4 0%, #00796b 70%);
+  color: #020408;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 900;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  margin-right: 10px;
+  position: relative;
+  box-shadow:
+    0 0 15px rgba(0, 245, 212, 0.6),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  vertical-align: middle;
+}
+
+/* 🌌 DISEÑO DEL FOOTER DE CRISTAL NEUMÓRFICO */
+.galaxy-footer {
+  margin-top: 100px;
+  width: 100%;
+  background: rgba(10, 25, 35, 0.2);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-radius: 28px;
+  padding: 40px 30px 20px 30px;
+  box-sizing: border-box;
+
+  border-top: 1px solid var(--glass-border-light);
+  border-left: 1px solid var(--glass-border-light);
+  border-bottom: 1px solid var(--glass-border-dark);
+  border-right: 1px solid var(--glass-border-dark);
+  box-shadow:
+    0 -15px 35px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 30px;
+  text-align: left;
+}
+
+.footer-brand {
+  max-width: 300px;
+}
+
+.footer-brand p {
+  font-size: 0.85rem;
+  color: #718096;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.footer-links-group {
+  display: flex;
+  gap: 25px;
+}
+
+.footer-links-group a {
+  color: #a0aec0;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+
+.footer-links-group a:hover {
+  color: var(--light-turquoise);
+  text-shadow: 0 0 8px var(--neon-glow);
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a0aec0;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+.footer-social a:hover {
+  color: #020408;
+  background: var(--light-turquoise);
+  box-shadow: 0 0 15px var(--light-turquoise);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  padding-top: 20px;
+  font-size: 0.75rem;
+  color: #4a5d78;
+  font-family: monospace;
+}
