@@ -337,27 +337,43 @@ body {
   box-shadow: 0 0 40px var(--electric-blue);
 }
 
-/* 🧪 ICONO FLUIDO REFRESCADO DE LA NAVBAR (Inspirado en Gemini_Generated_Image_l98numl98numl98n.png) */
+/* 🧪 LOGO REFORMADO: LA "N" ENCENDIDA Y BASE OSCURA */
 .logo-fluid-icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  background: radial-gradient(circle at 35% 35%, #00f5d4 0%, #00796b 70%);
-  color: #020408;
+  width: 32px;
+  height: 32px;
+  background: rgba(4, 12, 22, 0.6); /* Fondo de caja oscuro para contraste */
+
+  /* La letra N ahora es la que brilla y emite la luz verde neón */
+  color: #00f5d4;
+  text-shadow:
+    0 0 10px rgba(0, 245, 212, 0.8),
+    0 0 20px rgba(0, 245, 212, 0.4);
+
   font-family: "Segoe UI", sans-serif;
   font-weight: 900;
-  font-size: 0.95rem;
-  border-radius: 8px;
-  margin-right: 10px;
-  position: relative;
-  box-shadow:
-    0 0 15px rgba(0, 245, 212, 0.6),
-    inset 0 1px 2px rgba(255, 255, 255, 0.5);
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  font-size: 1.1rem;
+  border-radius: 10px;
+  margin-right: 12px;
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1);
   vertical-align: middle;
+}
+
+/* TIPOGRAFÍA DEL LOGO CON DOS COLORES */
+.brand-nexum {
+  color: #ffffff;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.brand-english {
+  color: #00f5d4; /* Color turquesa/verde cristal encendido */
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0, 245, 212, 0.3);
 }
 
 /* 🌌 DISEÑO DEL FOOTER DE CRISTAL NEUMÓRFICO */
@@ -419,11 +435,7 @@ body {
   text-shadow: 0 0 8px var(--neon-glow);
 }
 
-.footer-social {
-  display: flex;
-  gap: 15px;
-}
-
+/* 🔑 FIX DE REDES SOCIALES EN EL FOOTER */
 .footer-social a {
   width: 40px;
   height: 40px;
@@ -433,19 +445,24 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #a0aec0;
+  color: #a0aec0; /* Color gris claro por defecto */
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
 }
 
+/* Corrección de la pérdida de identidad al hacer hover */
 .footer-social a:hover {
-  color: #020408;
-  background: var(--light-turquoise);
-  box-shadow: 0 0 15px var(--light-turquoise);
-  transform: translateY(-2px);
+  background: #00f5d4 !important; /* Fondo encendido */
+  box-shadow: 0 0 20px rgba(0, 245, 212, 0.6);
+  transform: translateY(-3px);
 }
 
+/* Forzamos a que el icono interno (la fuente de Font Awesome) cambie a negro puro */
+.footer-social a:hover i {
+  color: #000000 !important;
+  text-shadow: none !important;
+}
 .footer-bottom {
   padding-top: 20px;
   font-size: 0.75rem;
