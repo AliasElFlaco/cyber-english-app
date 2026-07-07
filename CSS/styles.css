@@ -1,5 +1,5 @@
 /* ==========================================================================
-   🌌 NEARNATIVEENGLISH - CORE UI SELECTIONS (REFINED)
+   🌌 NEARNATIVEENGLISH - ARQUITECTURA SÓLIDA DE ESTILOS DE PRODUCCIÓN
    ========================================================================== */
 
 :root {
@@ -7,12 +7,12 @@
   --electric-blue: #00e5ff;
   --deep-turquoise: #004d40;
   --light-turquoise: #00f5d4;
-  --neon-glow: rgba(0, 245, 212, 0.25);
+  --neon-glow: rgba(0, 245, 212, 0.35);
 
-  /* Glassmorphism Líquido */
-  --glass-bg: rgba(4, 12, 22, 0.45);
+  /* Glassmorphism */
+  --glass-bg: rgba(4, 12, 22, 0.6);
   --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-border-light: rgba(255, 255, 255, 0.12);
+  --glass-border-light: rgba(255, 255, 255, 0.15);
 }
 
 body {
@@ -29,7 +29,9 @@ body {
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 
+  /* FONDO SIMULADO DE AGUA CONCÉNTRICA */
   background-image:
     radial-gradient(
       circle at 50% 35%,
@@ -47,7 +49,7 @@ body {
 }
 
 /* ==========================================================================
-   🛸 NAVBAR & TIPOGRAFÍA DE MARCA (SLIM & SHARP)
+   🛸 NAVBAR & ELEMENTOS DE NAVEGACIÓN DENTRO DEL PORTAL
    ========================================================================== */
 .galaxy-nav {
   position: fixed;
@@ -63,9 +65,9 @@ body {
   align-items: center;
   padding: 10px 24px;
   box-sizing: border-box;
-  z-index: 100;
+  z-index: 1000;
   border: 1px solid var(--glass-border);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
 }
 
 .nav-logo-nn {
@@ -176,7 +178,7 @@ body {
 }
 
 /* ==========================================================================
-   🧑‍🚀 WIDGET DE USUARIO ULTRA-SLIM (KELVIN)
+   🧑‍🚀 WIDGET DE USUARIO ULTRA-SLIM DE KELVIN
    ========================================================================== */
 .user-profile-wrapper {
   display: flex;
@@ -185,10 +187,9 @@ body {
   background: rgba(15, 23, 42, 0.6);
   padding: 5px 14px 5px 6px;
   border-radius: 20px;
-  border: 1px solid rgba(0, 245, 212, 0.25);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 245, 212, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
-
 .user-avatar-icon {
   width: 28px;
   height: 28px;
@@ -201,7 +202,6 @@ body {
   color: var(--light-turquoise);
   font-size: 0.85rem;
 }
-
 .user-info-meta {
   display: flex;
   flex-direction: column;
@@ -215,13 +215,13 @@ body {
 .user-plan-badge {
   font-size: 0.6rem;
   font-weight: 700;
-  color: #94a3b8;
+  color: var(--light-turquoise);
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
 /* ==========================================================================
-   🎬 LANDING COMERCIAL & CARRUSEL
+   🎬 LANDING COMERCIAL & CARRUSEL STARZ
    ========================================================================== */
 .view-section {
   width: 100%;
@@ -316,7 +316,7 @@ body {
   line-height: 1.1;
   margin: 15px 0;
   letter-spacing: -1px;
-  background: linear-gradient(135deg, #ffffff 50%, var(--light-turquoise));
+  background: linear-gradient(135deg, #ffffff 40%, var(--light-turquoise));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -326,7 +326,6 @@ body {
   color: #94a3b8;
   line-height: 1.5;
   margin-bottom: 25px;
-  font-weight: 400;
 }
 
 .btn-starz-action {
@@ -372,7 +371,7 @@ body {
 }
 
 /* ==========================================================================
-   🖥️ DASHBOARD PORTAL
+   🖥️ COMPONENTE DEL PORTAL (MAPA DE LAS FASES PEDAGÓGICAS)
    ========================================================================== */
 .roadmap-space {
   width: 90%;
@@ -437,7 +436,6 @@ body {
   border-bottom: 2px solid #004d40;
   display: inline-block;
   padding-bottom: 4px;
-  letter-spacing: 0.5px;
 }
 
 .phases-grid {
@@ -446,21 +444,41 @@ body {
   gap: 24px;
   margin-bottom: 50px;
 }
+
+/* 💎 LAS FASHCARDS / PHASE CARDS CON COMPORTAMIENTO PREMIUM RESTAURADO */
 .phase-card {
-  background: rgba(10, 25, 35, 0.3);
-  backdrop-filter: blur(20px);
-  border-radius: 20px;
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 350px;
-  border-top: 1px solid var(--glass-border-light);
-  border-left: 1px solid var(--glass-border-light);
-  border-bottom: 1px solid var(--glass-border-dark);
-  border-right: 1px solid var(--glass-border-dark);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  background: rgba(10, 25, 35, 0.4) !important;
+  backdrop-filter: blur(20px) !important;
+  border-radius: 20px !important;
+  padding: 28px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 350px !important;
+  box-sizing: border-box !important;
+
+  /* Borde nativo suavizado */
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6) !important;
+
+  /* Transición de alta velocidad */
+  transition:
+    transform 0.25s cubic-bezier(0.25, 1, 0.5, 1),
+    border-color 0.25s cubic-bezier(0.25, 1, 0.5, 1),
+    box-shadow 0.25s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
+
+/* 🔥 EFECTO HOVER RESPLANDOR VERDE TURQUESA DE LAS FLASHCARDS */
+.phase-card:hover {
+  transform: translateY(-8px) scale(1.01) !important; /* Movimiento fluido hacia arriba */
+  border-color: var(
+    --light-turquoise
+  ) !important; /* Se ilumina la orilla en verde esmeralda */
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.8),
+    0 0 25px var(--neon-glow) !important; /* Lindo resplandor perimetral de alta gama */
+}
+
 .phase-card-header {
   display: flex;
   justify-content: space-between;
@@ -522,7 +540,7 @@ body {
 }
 
 /* ==========================================================================
-   🌌 FOOTER NEUMÓRFICO ABSOLUTO (INDEPENDIENTE Y GLOBAL)
+   🌌 ARREGLO ABSOLUTO: REDES SOCIALES E INYECCIÓN GLOBAL DE LOS DOS FOOTERS
    ========================================================================== */
 .galaxy-footer {
   width: 100% !important;
@@ -572,16 +590,19 @@ body {
   color: var(--light-turquoise);
 }
 
-/* Fuerza estructural para los iconos de redes sociales */
-.footer-social {
+/* Fuerza absoluta para la botonera de redes sociales del portal y la landing */
+body .footer-social,
+#view-landing .footer-social,
+#view-dashboard .footer-social {
   display: flex !important;
   gap: 12px !important;
   margin: 0 !important;
   padding: 0 !important;
-  list-style: none !important;
 }
 
-.footer-social a {
+body .footer-social a,
+#view-landing .footer-social a,
+#view-dashboard .footer-social a {
   width: 38px !important;
   height: 38px !important;
   border-radius: 10px !important;
@@ -591,19 +612,23 @@ body {
   align-items: center !important;
   justify-content: center !important;
   color: #94a3b8 !important;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1) !important;
   text-decoration: none !important;
 }
 
-/* El encendido verde esmeralda exacto que viste en la Landing */
-.footer-social a:hover {
+/* 🔥 CORREGIDO AL 100%: Encendido verde neón esmeralda idéntico en toda la SPA */
+body .footer-social a:hover,
+#view-landing .footer-social a:hover,
+#view-dashboard .footer-social a:hover {
   background: var(--light-turquoise) !important;
-  box-shadow: 0 0 15px rgba(0, 245, 212, 0.5) !important;
-  transform: translateY(-2px) !important;
+  box-shadow: 0 0 18px rgba(0, 245, 212, 0.6) !important;
+  transform: translateY(-3px) !important;
 }
 
-.footer-social a:hover i {
-  color: #020408 !important; /* Muta el icono de la red a negro oscuro */
+body .footer-social a:hover i,
+#view-landing .footer-social a:hover i,
+#view-dashboard .footer-social a:hover i {
+  color: #020408 !important; /* Muta el icono interno a negro oscuro al prender */
 }
 
 .footer-bottom {
@@ -612,5 +637,4 @@ body {
   color: #475569;
   margin-top: 15px;
   font-family: monospace;
-  letter-spacing: 0.5px;
 }
