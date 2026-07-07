@@ -481,3 +481,56 @@ body {
   width: 42px;
   height: 22px;
 }
+
+/* 🧑‍🚀 COMPONENTE DE PERFIL DE USUARIO SIMULADO */
+.user-profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 6px 16px 6px 8px;
+  border-radius: 30px;
+  border: 1px solid rgba(0, 245, 212, 0.25);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00f5d4, #00e5ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #020408;
+  font-weight: 800;
+  font-size: 0.9rem;
+  box-shadow: 0 0 10px rgba(0, 245, 212, 0.5);
+}
+
+.user-info-meta {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.user-name-slug {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.user-plan-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--light-turquoise);
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+/* Ajuste de márgenes para el footer de la landing comercial */
+#view-landing .galaxy-footer {
+  width: 95%;
+  max-width: 1250px;
+  margin: 40px auto 20px auto;
+}

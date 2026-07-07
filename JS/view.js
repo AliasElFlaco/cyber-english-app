@@ -27,13 +27,20 @@ class RoadmapView {
     this.dashboardView.classList.remove("dynamic-hide");
     this.navLinks.classList.remove("dynamic-hide");
 
-    // Muta la Navbar para esconder Register
-    this.authBtn.innerHTML = `<i class="fas fa-user-astronaut"></i> CADETE ACADEMY`;
-    this.authBtn.style.background = "rgba(0, 245, 212, 0.15)";
-    this.authBtn.style.color = "#ffffff";
-    this.authBtn.style.borderColor = "#00f5d4";
+    // REEMPLAZO COMPLETO: Construimos un perfil de usuario real simulado
+    const authContainer = document.getElementById("auth-container");
+    if (authContainer) {
+      authContainer.innerHTML = `
+                <div class="user-profile-wrapper">
+                    <div class="user-avatar">CD</div>
+                    <div class="user-info-meta">
+                        <span class="user-name-slug">Cadete Digital</span>
+                        <span class="user-plan-badge">${nombrePlan}</span>
+                    </div>
+                </div>
+            `;
+    }
 
-    // Muestra un mensaje personalizado según el plan elegido
     this.welcomeBadge.innerText = `Suscripción Activa: Modalidad ${nombrePlan} • Acceso Total Autorizado`;
   }
 
