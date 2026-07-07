@@ -591,18 +591,18 @@ body {
 }
 
 /* Fuerza absoluta para la botonera de redes sociales del portal y la landing */
-body .footer-social,
-#view-landing .footer-social,
-#view-dashboard .footer-social {
+/* ==========================================================================
+   🌌 CONTROL ATÓMICO: BOTONERA DE REDES SOCIALES (HOVER FIX)
+   ========================================================================== */
+.footer-social {
   display: flex !important;
   gap: 12px !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
-body .footer-social a,
-#view-landing .footer-social a,
-#view-dashboard .footer-social a {
+/* Usamos la clase directa .social-link para evitar interferencias de herencia */
+.social-link {
   width: 38px !important;
   height: 38px !important;
   border-radius: 10px !important;
@@ -616,25 +616,13 @@ body .footer-social a,
   text-decoration: none !important;
 }
 
-/* 🔥 CORREGIDO AL 100%: Encendido verde neón esmeralda idéntico en toda la SPA */
-body .footer-social a:hover,
-#view-landing .footer-social a:hover,
-#view-dashboard .footer-social a:hover {
+/* El encendido verde esmeralda exacto e infalible en ambas vistas */
+.social-link:hover {
   background: var(--light-turquoise) !important;
   box-shadow: 0 0 18px rgba(0, 245, 212, 0.6) !important;
   transform: translateY(-3px) !important;
 }
 
-body .footer-social a:hover i,
-#view-landing .footer-social a:hover i,
-#view-dashboard .footer-social a:hover i {
-  color: #020408 !important; /* Muta el icono interno a negro oscuro al prender */
-}
-
-.footer-bottom {
-  text-align: center;
-  font-size: 0.7rem;
-  color: #475569;
-  margin-top: 15px;
-  font-family: monospace;
+.social-link:hover i {
+  color: #020408 !important; /* Fuerza al icono interno a volverse negro oscuro */
 }
