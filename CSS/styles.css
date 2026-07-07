@@ -1,9 +1,15 @@
+/* ==========================================================================
+   🌌 NEARNATIVEENGLISH - HOJA DE ESTILOS OFICIAL DE PRODUCCIÓN (2026)
+   ========================================================================== */
+
 :root {
   --bg-space: #020408;
   --electric-blue: #00e5ff;
   --deep-turquoise: #004d40;
   --light-turquoise: #00f5d4;
   --neon-glow: rgba(0, 245, 212, 0.3);
+
+  /* Cristal Líquido Neumórfico */
   --glass-liquid: rgba(255, 255, 255, 0.02);
   --glass-border-light: rgba(255, 255, 255, 0.12);
   --glass-border-dark: rgba(0, 0, 0, 0.6);
@@ -23,7 +29,21 @@ body {
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
+
+  /* FONDO: Efecto de Ondas de Agua Concéntricas y gradiente profundo */
   background-image:
+    radial-gradient(
+      circle at 50% 35%,
+      transparent 20%,
+      rgba(0, 77, 64, 0.15) 21%,
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 50% 35%,
+      transparent 40%,
+      rgba(0, 77, 64, 0.1) 41%,
+      transparent 46%
+    ),
     radial-gradient(
       circle at 50% 25%,
       var(--deep-turquoise) 0%,
@@ -33,7 +53,9 @@ body {
   background-attachment: fixed;
 }
 
-/* 🛸 NAVBAR PREMIUM */
+/* ==========================================================================
+   🛸 NAVBAR PREMIUM GLOBAL
+   ========================================================================== */
 .galaxy-nav {
   position: fixed;
   top: 20px;
@@ -49,8 +71,11 @@ body {
   padding: 12px 24px;
   box-sizing: border-box;
   z-index: 100;
+
   border-top: 1px solid rgba(255, 255, 255, 0.25);
   border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+  border-right: 1px solid rgba(0, 0, 0, 0.7);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
 }
 
@@ -59,6 +84,7 @@ body {
   align-items: center;
   gap: 12px;
 }
+
 .nn-bridge-wrapper {
   display: flex;
   align-items: center;
@@ -68,6 +94,7 @@ body {
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
+
 .n-letter {
   font-size: 1.4rem;
   font-weight: 800;
@@ -76,6 +103,7 @@ body {
   z-index: 2;
   letter-spacing: 4px;
 }
+
 .nn-arc {
   position: absolute;
   top: 4px;
@@ -87,13 +115,16 @@ body {
   z-index: 1;
   filter: drop-shadow(0 0 8px rgba(0, 245, 212, 0.9));
 }
+
 .brand-text-nn {
   font-size: 1.25rem;
   font-weight: 600;
 }
+
 .nn-silver {
   color: #e2e8f0;
 }
+
 .nn-turquoise {
   color: var(--light-turquoise);
   text-shadow: 0 0 15px rgba(0, 245, 212, 0.5);
@@ -104,6 +135,7 @@ body {
   align-items: center;
   gap: 12px;
 }
+
 .nav-item {
   display: flex;
   flex-direction: column;
@@ -115,29 +147,37 @@ body {
   border-radius: 18px;
   background: rgba(0, 229, 255, 0.04);
   color: #cbd5e1;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+  border-right: 1px solid rgba(0, 0, 0, 0.6);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
+
 .nav-item .icon-wrapper {
   font-size: 1.25rem;
   margin-bottom: 6px;
   color: var(--light-turquoise);
 }
+
 .nav-item .nav-text {
   font-size: 0.78rem;
   font-weight: 700;
 }
+
 .nav-item:hover {
   background: rgba(0, 229, 255, 0.15);
   transform: translateY(-2px);
 }
+
 .nav-item.active {
   color: #020408 !important;
   background: linear-gradient(135deg, #00f5d4, #00e5ff) !important;
   font-weight: 800;
   box-shadow: 0 0 25px rgba(0, 229, 255, 0.6);
 }
+
 .nav-item.active .icon-wrapper {
   color: #020408 !important;
 }
@@ -152,12 +192,15 @@ body {
   font-weight: 700;
   cursor: pointer;
 }
+
 .user-status:hover {
   background: #00e5ff !important;
   color: #000000 !important;
 }
 
-/* 🧑‍🚀 COMPONENTE DE PERFIL DE USUARIO PREMIUM (KELVIN) */
+/* ==========================================================================
+   🧑‍🚀 PERFIL PREMIUM DE USUARIO (KELVIN)
+   ========================================================================== */
 .user-profile-wrapper {
   display: flex;
   align-items: center;
@@ -213,7 +256,9 @@ body {
   text-transform: uppercase;
 }
 
-/* 🎬 ESCENARIO DEL CARRUSEL */
+/* ==========================================================================
+   🎬 ESCENARIO INTERACTIVO (SPA & CARRUSEL STARZ)
+   ========================================================================== */
 .view-section {
   width: 100%;
   transition: opacity 0.5s ease;
@@ -251,6 +296,7 @@ body {
   );
   z-index: 1;
 }
+
 .carousel-slide {
   position: relative;
   z-index: 2;
@@ -364,7 +410,9 @@ body {
   border-radius: 6px;
 }
 
-/* 🖥️ MAQUETACIÓN DASHBOARD PANORÁMICO */
+/* ==========================================================================
+   🖥️ MAQUETACIÓN DASHBOARD PANORÁMICO
+   ========================================================================== */
 .roadmap-space {
   width: 90%;
   max-width: 1200px;
@@ -512,15 +560,20 @@ body {
   color: var(--light-turquoise);
 }
 
-/* 🌌 FOOTER NEUMÓRFICO CON HOVER VERDE TURQUESA */
+/* ==========================================================================
+   🌌 FOOTER NEUMÓRFICO UNIVERSAL (LANDING Y DASHBOARD)
+   ========================================================================== */
 .galaxy-footer {
-  width: 100%;
-  background: rgba(10, 25, 35, 0.3);
-  backdrop-filter: blur(25px);
+  width: 95%;
+  max-width: 1250px;
+  background: rgba(10, 25, 35, 0.3) !important;
+  backdrop-filter: blur(25px) !important;
+  -webkit-backdrop-filter: blur(25px) !important;
+  border-radius: 28px;
   padding: 40px 30px 20px 30px;
   box-sizing: border-box;
-  border-top: 1px solid var(--glass-border-light);
-  margin-top: 60px;
+  border-top: 1px solid var(--glass-border-light) !important;
+  margin: 60px auto 20px auto;
 }
 
 .footer-content {
@@ -532,6 +585,7 @@ body {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   padding-bottom: 30px;
 }
+
 .footer-brand {
   max-width: 350px;
   text-align: left;
@@ -555,34 +609,35 @@ body {
   color: var(--light-turquoise);
 }
 
+/* 🌟 SELECTOR DIRECTO DE ICONOS SIN IMPORTAR CONTENEDOR ANIDADO */
 .footer-social {
-  display: flex;
-  gap: 15px;
+  display: flex !important;
+  gap: 15px !important;
 }
 
 .footer-social a {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #a0aec0;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 12px !important;
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #a0aec0 !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05) !important;
 }
 
-/* 🔥 CORREGIDO: Encendido verde esmeralda idéntico para ambos portales */
+/* 🔥 ARREGLADO DE POR VIDA: Brillo verde esmeralda idéntico para todas las vistas */
 .footer-social a:hover {
   background: var(--light-turquoise) !important;
-  box-shadow: 0 0 20px rgba(0, 245, 212, 0.6);
-  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(0, 245, 212, 0.6) !important;
+  transform: translateY(-3px) !important;
 }
 
 .footer-social a:hover i {
-  color: #020408 !important; /* El icono cambia a negro puro en el hover */
+  color: #020408 !important; /* Fuerza al icono de la red a volverse negro puro */
 }
 
 .footer-bottom {
