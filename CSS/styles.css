@@ -355,7 +355,9 @@ body {
   line-height: 1.1;
   margin: 20px 0;
   background: linear-gradient(135deg, #ffffff 40%, var(--light-turquoise));
+  /* 🌟 LAS PROPIEDADES DE GRADIENTE DE TEXTO COMPLETA: */
   -webkit-background-clip: text;
+  background-clip: text; /* 👈 Agrega esta línea estándar para quitar el warning */
   -webkit-text-fill-color: transparent;
 }
 .slide-description {
