@@ -157,7 +157,63 @@ body {
   color: #000000 !important;
 }
 
-/* 🎬 ESCENARIO DEL CARRUSEL DE ESTUDIOS (ESTILO STARZ PREMIUM) */
+/* 🧑‍🚀 COMPONENTE DE PERFIL DE USUARIO PREMIUM (KELVIN) */
+.user-profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(4, 12, 22, 0.6);
+  padding: 6px 18px 6px 8px;
+  border-radius: 30px;
+  border: 1px solid rgba(0, 245, 212, 0.4);
+  box-shadow: 0 0 15px rgba(0, 245, 212, 0.15);
+  animation: fadeInProfile 0.4s ease;
+}
+
+@keyframes fadeInProfile {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00f5d4, #00e5ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #020408;
+  font-weight: 800;
+  font-size: 1rem;
+  box-shadow: 0 0 12px var(--light-turquoise);
+}
+
+.user-info-meta {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.user-name-slug {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.2px;
+}
+.user-plan-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: var(--light-turquoise);
+  text-transform: uppercase;
+}
+
+/* 🎬 ESCENARIO DEL CARRUSEL */
 .view-section {
   width: 100%;
   transition: opacity 0.5s ease;
@@ -171,7 +227,6 @@ body {
   width: 100vw;
   height: 92vh;
   margin-top: 80px;
-  /* CAMBIADO: Imagen de estudio e interfaces digitales, cero cines */
   background-image: url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920");
   background-size: cover;
   background-position: center;
@@ -196,15 +251,13 @@ body {
   );
   z-index: 1;
 }
-
 .carousel-slide {
   position: relative;
   z-index: 2;
   max-width: 650px;
   text-align: left;
-  display: none; /* Se maneja por JS */
+  display: none;
 }
-
 .carousel-slide.active {
   display: block;
   animation: fadeInSlide 0.6s ease-in-out;
@@ -221,6 +274,26 @@ body {
   }
 }
 
+.landing-brand {
+  justify-content: flex-start !important;
+  margin-bottom: 25px;
+}
+.landing-brand-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+.landing-brand .large-logo .n-letter {
+  font-size: 2.5rem;
+  letter-spacing: 6px;
+}
+.landing-brand .large-arc {
+  top: 7px;
+  left: 32px;
+  width: 42px;
+  height: 22px;
+}
+
 .offer-badge {
   background: rgba(0, 245, 212, 0.15);
   color: var(--light-turquoise);
@@ -230,7 +303,6 @@ body {
   font-weight: 700;
   letter-spacing: 1px;
 }
-
 .slide-title {
   font-size: 3.6rem;
   font-weight: 900;
@@ -240,7 +312,6 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 .slide-description {
   font-size: 1.15rem;
   color: #94a3b8;
@@ -261,7 +332,6 @@ body {
   box-shadow: 0 0 30px rgba(0, 245, 212, 0.4);
   transition: all 0.3s ease;
 }
-
 .btn-starz-action:hover {
   background: #ffffff;
   box-shadow: 0 0 45px rgba(255, 255, 255, 0.6);
@@ -271,7 +341,6 @@ body {
   background: linear-gradient(135deg, #00e5ff, #00f5d4);
 }
 
-/* INDICADORES DE CARRUSEL */
 .carousel-dots {
   position: absolute;
   bottom: 40px;
@@ -443,6 +512,7 @@ body {
   color: var(--light-turquoise);
 }
 
+/* 🌌 FOOTER NEUMÓRFICO CON HOVER VERDE TURQUESA */
 .galaxy-footer {
   width: 100%;
   background: rgba(10, 25, 35, 0.3);
@@ -450,87 +520,74 @@ body {
   padding: 40px 30px 20px 30px;
   box-sizing: border-box;
   border-top: 1px solid var(--glass-border-light);
+  margin-top: 60px;
 }
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 30px;
+}
+.footer-brand {
+  max-width: 350px;
+  text-align: left;
+}
+.footer-brand p {
+  font-size: 0.85rem;
+  color: #718096;
+  margin-top: 12px;
+}
+.footer-links-group {
+  display: flex;
+  gap: 25px;
+}
+.footer-links-group a {
+  color: #a0aec0;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+.footer-links-group a:hover {
+  color: var(--light-turquoise);
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+}
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a0aec0;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+}
+
+/* El icónico encendido verde esmeralda al pasar el mouse */
+.footer-social a:hover {
+  background: var(--light-turquoise) !important;
+  box-shadow: 0 0 20px rgba(0, 245, 212, 0.6);
+  transform: translateY(-3px);
+}
+
+.footer-social a:hover i {
+  color: #020408 !important; /* El icono cambia a negro puro */
+}
+
 .footer-bottom {
   text-align: center;
   font-size: 0.75rem;
   color: #4a5d78;
-  margin-top: 10px;
-}
-
-/* Ajustes para el logotipo dentro de la Landing Comercial */
-.landing-brand {
-  justify-content: flex-start !important;
-  margin-bottom: 25px;
-}
-
-.landing-brand-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin: 0;
-}
-
-.landing-brand .large-logo .n-letter {
-  font-size: 2.5rem;
-  letter-spacing: 6px;
-}
-
-.landing-brand .large-arc {
-  top: 7px;
-  left: 32px;
-  width: 42px;
-  height: 22px;
-}
-
-/* 🧑‍🚀 COMPONENTE DE PERFIL DE USUARIO SIMULADO */
-.user-profile-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 6px 16px 6px 8px;
-  border-radius: 30px;
-  border: 1px solid rgba(0, 245, 212, 0.25);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-}
-
-.user-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #00f5d4, #00e5ff);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #020408;
-  font-weight: 800;
-  font-size: 0.9rem;
-  box-shadow: 0 0 10px rgba(0, 245, 212, 0.5);
-}
-
-.user-info-meta {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-
-.user-name-slug {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.user-plan-badge {
-  font-size: 0.65rem;
-  font-weight: 800;
-  color: var(--light-turquoise);
-  letter-spacing: 0.3px;
-  text-transform: uppercase;
-}
-
-/* Ajuste de márgenes para el footer de la landing comercial */
-#view-landing .galaxy-footer {
-  width: 95%;
-  max-width: 1250px;
-  margin: 40px auto 20px auto;
+  margin-top: 20px;
+  font-family: monospace;
 }

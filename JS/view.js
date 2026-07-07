@@ -1,67 +1,77 @@
 class RoadmapView {
   constructor() {
+    // Elementos de navegación y flujo SPA
     this.landingView = document.getElementById("view-landing");
     this.dashboardView = document.getElementById("view-dashboard");
     this.navLinks = document.getElementById("nav-dashboard-links");
-    this.authBtn = document.getElementById("auth-btn");
+    this.authContainer = document.getElementById("auth-container");
     this.welcomeBadge = document.getElementById("welcome-user-badge");
 
-    // Elementos de Carrusel
+    // Elementos del Carrusel de Ofertas
     this.slides = document.querySelectorAll(".carousel-slide");
     this.dots = document.querySelectorAll(".dot");
     this.btnScroll = document.querySelector(".btn-scroll-offers");
   }
 
-  // Cambia el slide visual activo en el carrusel
+  // Cambia el slide visual activo en el carrusel de StarZ
   cambiarSlide(index) {
     this.slides.forEach((slide) => slide.classList.remove("active"));
     this.dots.forEach((dot) => dot.classList.remove("active"));
 
-    this.slides[index].classList.add("active");
-    this.dots[index].classList.add("active");
+    if (this.slides[index] && this.dots[index]) {
+      this.slides[index].classList.add("active");
+      this.dots[index].classList.add("active");
+    }
   }
 
-  // Ejecuta la entrada directa al portal adaptando el rol comprado
+  // Ejecuta la metamorfosis: Apaga la landing, muestra el portal e inyecta a Kelvin
   activarPortalDashboard(nombrePlan) {
     this.landingView.classList.add("dynamic-hide");
     this.dashboardView.classList.remove("dynamic-hide");
     this.navLinks.classList.remove("dynamic-hide");
 
-    // REEMPLAZO COMPLETO: Construimos un perfil de usuario real simulado
-    const authContainer = document.getElementById("auth-container");
-    if (authContainer) {
-      authContainer.innerHTML = `
+    // Transforma el botón de REGISTER en el Perfil Premium de Kelvin
+    if (this.authContainer) {
+      this.authContainer.innerHTML = `
                 <div class="user-profile-wrapper">
-                    <div class="user-avatar">CD</div>
+                    <div class="user-avatar">K</div>
                     <div class="user-info-meta">
-                        <span class="user-name-slug">Cadete Digital</span>
+                        <span class="user-name-slug">Kelvin</span>
                         <span class="user-plan-badge">${nombrePlan}</span>
                     </div>
                 </div>
             `;
     }
 
-    this.welcomeBadge.innerText = `Suscripción Activa: Modalidad ${nombrePlan} • Acceso Total Autorizado`;
+    // Inyecta el mensaje de bienvenida con el plan en el subtítulo del Dashboard
+    if (this.welcomeBadge) {
+      this.welcomeBadge.innerText = `Suscripción Activa: Modalidad ${nombrePlan} • Acceso Total Autorizado`;
+    }
   }
 
-  bindCambioDot(handler) {
+  // Escucha los clics de los puntitos y del botón de entrada del carrusel
+  bindControlCarrusel(handler) {
+    if (this.btnScroll) {
+      this.btnScroll.addEventListener("click", () => {
+        handler(1); // Brinca directo al slide del Plan Autodidacta
+      });
+    }
+
     this.dots.forEach((dot) => {
       dot.addEventListener("click", (e) => {
-        const targetIndex = parseInt(e.target.getAttribute("data-slide"));
-        handler(targetIndex);
+        const index = parseInt(e.target.getAttribute("data-slide"));
+        handler(index);
       });
     });
-
-    // El botón del primer slide avanza al plan autodidacta
-    this.btnScroll.addEventListener("click", () => handler(1));
   }
 
+  // Escucha los clics de los botones de compra de los planes
   bindSuscripcionPlanes(handler) {
     const botonesSuscripcion = document.querySelectorAll(".btn-subscribe-plan");
     botonesSuscripcion.forEach((btn) => {
       btn.addEventListener("click", (e) => {
-        const tipoPlan = e.target.getAttribute("data-plan");
-        handler(tipoPlan);
+        const planSeleccionado = e.target.getAttribute("data-plan");
+        handler(planSeleccionado);
       });
     });
   }
