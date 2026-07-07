@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NearNativeEnglish | Tu Camino a la Fluidez Nativa</title>
-    <!-- Iconos oficiales y tipografías premium -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -12,7 +11,7 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <!-- 🛸 NAVBAR PREMIUM: NEARNATIVEENGLISH -->
+    <!-- 🛸 NAVBAR PREMIUM GLOBAL -->
     <nav class="galaxy-nav">
       <div class="nav-logo-nn">
         <div class="nn-bridge-wrapper">
@@ -27,41 +26,143 @@
         </div>
       </div>
 
-      <div class="nav-links">
-        <a href="#" class="nav-item active">
-          <span class="icon-wrapper"
-            ><i class="fas fa-map-marked-alt"></i
-          ></span>
-          <span class="nav-text">6-Month Map</span>
-        </a>
-        <a href="#" class="nav-item">
-          <span class="icon-wrapper"><i class="fas fa-user-graduate"></i></span>
-          <span class="nav-text">Active Class</span>
-        </a>
-        <a href="#" class="nav-item">
-          <span class="icon-wrapper"><i class="fas fa-random"></i></span>
-          <span class="nav-text">Cognate Tool</span>
-        </a>
-        <a href="#" class="nav-item">
-          <span class="icon-wrapper"><i class="fas fa-layer-group"></i></span>
-          <span class="nav-text">Flashcards</span>
-        </a>
-        <a href="#" class="nav-item">
-          <span class="icon-wrapper"
-            ><i class="fas fa-clipboard-check"></i
-          ></span>
-          <span class="nav-text">Milestone Quiz</span>
-        </a>
+      <div id="nav-dashboard-links" class="nav-links dynamic-hide">
+        <a href="#" class="nav-item active"
+          ><span class="icon-wrapper"
+            ><i class="fas fa-map-marked-alt"></i></span
+          ><span class="nav-text">6-Month Map</span></a
+        >
+        <a href="#" class="nav-item"
+          ><span class="icon-wrapper"><i class="fas fa-user-graduate"></i></span
+          ><span class="nav-text">Active Class</span></a
+        >
+        <a href="#" class="nav-item"
+          ><span class="icon-wrapper"><i class="fas fa-random"></i></span
+          ><span class="nav-text">Cognate Tool</span></a
+        >
+        <a href="#" class="nav-item"
+          ><span class="icon-wrapper"><i class="fas fa-layer-group"></i></span
+          ><span class="nav-text">Flashcards</span></a
+        >
+        <a href="#" class="nav-item"
+          ><span class="icon-wrapper"
+            ><i class="fas fa-clipboard-check"></i></span
+          ><span class="nav-text">Milestone Quiz</span></a
+        >
       </div>
 
-      <div class="user-status">
+      <div id="auth-btn" class="user-status">
         <i class="fas fa-key"></i> SIGN IN / REGISTER
       </div>
     </nav>
 
-    <!-- CONTENEDOR PANORÁMICO CENTRAL -->
-    <main class="roadmap-space">
-      <!-- 🔥 HERO PRINCIPAL: LOGO GIGANTE Y TEXTOS CENTRADOS PARA MÁXIMO LUCIMIENTO -->
+    <!-- 🎬 SECCIÓN 1: LANDING COMERCIAL CON TU IDENTIDAD PREMUM -->
+    <div id="view-landing" class="view-section">
+      <div class="starz-carousel">
+        <div class="slide-overlay"></div>
+
+        <!-- SLIDE 1: PRESENTACIÓN ENE -->
+        <div class="carousel-slide active" data-index="0">
+          <div class="slide-content">
+            <!-- LOGO GIGANTE INCORPORADO EN LA ENTRADA -->
+            <div class="hero-brand-container landing-brand">
+              <div class="nn-bridge-wrapper large-logo">
+                <span class="n-letter">N</span>
+                <span class="nn-arc large-arc"></span>
+                <span class="n-letter">N</span>
+              </div>
+              <h2 class="landing-brand-title">
+                <span class="nn-silver">Near</span
+                ><span class="nn-turquoise">Native</span
+                ><span class="nn-silver">English</span>
+              </h2>
+            </div>
+            <span class="offer-badge">MÉTODO REVOLUCIONARIO</span>
+            <h1 class="slide-title">HABLA COMO UN NATIVO</h1>
+            <p class="slide-description">
+              Tu puente de la fluidez global. Conecta, aprende y domina el
+              idioma con nuestra plataforma innovadora de condicionamiento
+              muscular y conversión a alta velocidad.
+            </p>
+            <button class="btn-scroll-offers btn-starz-action">
+              VER PLANES DE ESTUDIO ➔
+            </button>
+          </div>
+        </div>
+
+        <!-- SLIDE 2: OFERTA PLAN AUTODIDACTA -->
+        <div class="carousel-slide" data-index="1">
+          <div class="slide-content">
+            <div class="hero-brand-container landing-brand">
+              <div class="nn-bridge-wrapper large-logo">
+                <span class="n-letter">N</span>
+                <span class="nn-arc large-arc"></span>
+                <span class="n-letter">N</span>
+              </div>
+              <h2 class="landing-brand-title">
+                <span class="nn-silver">Near</span
+                ><span class="nn-turquoise">Native</span
+                ><span class="nn-silver">English</span>
+              </h2>
+            </div>
+            <span class="offer-badge">PLAN DIGITAL PRO</span>
+            <h1 class="slide-title">PLAN AUTODIDACTA</h1>
+            <p class="slide-description">
+              Estudia a tu propio ritmo con acceso ilimitado 24/7 a la
+              plataforma interactiva, herramientas cognitivas, flashcards y
+              simuladores avanzados.
+            </p>
+            <button
+              class="btn-subscribe-plan btn-starz-action"
+              data-plan="Autodidacta"
+            >
+              SUSCRIBIRSE SOLO | $5 USD / MES
+            </button>
+          </div>
+        </div>
+
+        <!-- SLIDE 3: OFERTA PLAN CON TUTORÍA -->
+        <div class="carousel-slide" data-index="2">
+          <div class="slide-content">
+            <div class="hero-brand-container landing-brand">
+              <div class="nn-bridge-wrapper large-logo">
+                <span class="n-letter">N</span>
+                <span class="nn-arc large-arc"></span>
+                <span class="n-letter">N</span>
+              </div>
+              <h2 class="landing-brand-title">
+                <span class="nn-silver">Near</span
+                ><span class="nn-turquoise">Native</span
+                ><span class="nn-silver">English</span>
+              </h2>
+            </div>
+            <span class="offer-badge">ACOMPAÑAMIENTO ELITE</span>
+            <h1 class="slide-title">PLAN CON TUTORÍA</h1>
+            <p class="slide-description">
+              Todo el poder de la plataforma digital + sesiones personalizadas
+              en vivo con tutores nativos para acelerar tu corrección de acento
+              y fluidez.
+            </p>
+            <button
+              class="btn-subscribe-plan btn-starz-action VIP"
+              data-plan="Premium con Tutoría"
+            >
+              SUSCRIBIRSE CON TUTOR | $25 USD / MES
+            </button>
+          </div>
+        </div>
+
+        <!-- PUNTOS INTERACTIVOS -->
+        <div class="carousel-dots">
+          <span class="dot active" data-slide="0"></span>
+          <span class="dot" data-slide="1"></span>
+          <span class="dot" data-slide="2"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 💻 SECCIÓN 2: DASHBOARD PRIVADO (PORTAL) -->
+    <main id="view-dashboard" class="roadmap-space view-section dynamic-hide">
       <header class="roadmap-header">
         <div class="hero-brand-container">
           <div class="nn-bridge-wrapper large-logo">
@@ -75,28 +176,20 @@
             ><span class="nn-silver">English</span>
           </h1>
         </div>
-
         <h2 class="hero-tagline">
-          Tu Camino de 24 Semanas hacia la Fluidez Nativa
+          Panel de Control: Tu Ruta de Transformación
         </h2>
-        <p class="hero-subtitle">
-          Tu puente de la fluidez global. Conecta, aprende y domina el idioma
-          con nuestra plataforma innovadora de condicionamiento muscular y
-          conversión a alta velocidad.
-        </p>
+        <p id="welcome-user-badge" class="hero-subtitle"></p>
       </header>
 
-      <!-- 💎 SECCIÓN DE TARJETAS NEUMÓRFICAS DE CRISTAL LÍQUIDO -->
       <section class="roadmap-section">
         <h2 class="section-title">El Roadmap de Clases de 6 Meses</h2>
-
         <div class="phases-grid">
           <!-- FASE 1 -->
           <div class="phase-card">
             <div>
               <div class="phase-card-header">
-                <span class="phase-badge">FASE 1</span>
-                <span>W1 – W8</span>
+                <span class="phase-badge">FASE 1</span><span>W1 – W8</span>
               </div>
               <h3>Fundamentos del Acento y Gramática</h3>
               <ul class="phase-months-list">
@@ -109,13 +202,11 @@
               <div class="glow-icon"><i class="fa-solid fa-lightbulb"></i></div>
             </div>
           </div>
-
           <!-- FASE 2 -->
           <div class="phase-card">
             <div>
               <div class="phase-card-header">
-                <span class="phase-badge">FASE 2</span>
-                <span>W9 – W16</span>
+                <span class="phase-badge">FASE 2</span><span>W9 – W16</span>
               </div>
               <h3>Fluidez y Conversión Intermedia</h3>
               <ul class="phase-months-list">
@@ -134,13 +225,11 @@
               </div>
             </div>
           </div>
-
           <!-- FASE 3 -->
           <div class="phase-card">
             <div>
               <div class="phase-card-header">
-                <span class="phase-badge">FASE 3</span>
-                <span>W17 – W24</span>
+                <span class="phase-badge">FASE 3</span><span>W17 – W24</span>
               </div>
               <h3>Maestría Profesional y Situacional</h3>
               <ul class="phase-months-list">
@@ -161,42 +250,17 @@
         </div>
       </section>
 
-      <!-- FOOTER UNIFICADO DE CRISTAL FRENADO EN LA BASE -->
       <footer class="galaxy-footer">
-        <div class="footer-content">
-          <div class="footer-brand">
-            <div class="nav-logo-nn">
-              <div class="nn-bridge-wrapper">
-                <span class="n-letter">N</span>
-                <span class="nn-arc"></span>
-                <span class="n-letter">N</span>
-              </div>
-              <div class="brand-text-nn">
-                <span class="nn-silver">Near</span
-                ><span class="nn-turquoise">Native</span
-                ><span class="nn-silver">English</span>
-              </div>
-            </div>
-            <p>
-              Tu puente a la fluidez global. Desarrollando tecnología de punta
-              para la asimilación del lenguaje natural.
-            </p>
-          </div>
-          <div class="footer-links-group">
-            <a href="#">Términos de Enlace</a>
-            <a href="#">Protocolos de Privacidad</a>
-            <a href="#">Soporte de Órbita</a>
-          </div>
-          <div class="footer-social">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-discord"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-          </div>
-        </div>
         <div class="footer-bottom">
           &copy; 2026 NearNativeEnglish. Todos los derechos reservados.
         </div>
       </footer>
     </main>
+
+    <!-- CONTROLADORES REESTRUCTURADOS -->
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>

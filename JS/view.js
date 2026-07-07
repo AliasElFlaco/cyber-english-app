@@ -1,48 +1,61 @@
 class RoadmapView {
   constructor() {
-    // Seleccionamos el contenedor que actualmente está vacío en tu HTML
-    this.container = document.getElementById("roadmap-container");
-    this.btnComenzar = document.getElementById("start-mission-btn");
+    this.landingView = document.getElementById("view-landing");
+    this.dashboardView = document.getElementById("view-dashboard");
+    this.navLinks = document.getElementById("nav-dashboard-links");
+    this.authBtn = document.getElementById("auth-btn");
+    this.welcomeBadge = document.getElementById("welcome-user-badge");
+
+    // Elementos de Carrusel
+    this.slides = document.querySelectorAll(".carousel-slide");
+    this.dots = document.querySelectorAll(".dot");
+    this.btnScroll = document.querySelector(".btn-scroll-offers");
   }
 
-  // Generador dinámico de tarjetas de cristal líquido
-  dibujarRoadmap(fases) {
-    this.container.innerHTML = ""; // Limpiamos carga inicial
+  // Cambia el slide visual activo en el carrusel
+  cambiarSlide(index) {
+    this.slides.forEach((slide) => slide.classList.remove("active"));
+    this.dots.forEach((dot) => dot.classList.remove("active"));
 
-    fases.forEach((fase) => {
-      // 1. Crear la tarjeta principal
-      const card = document.createElement("article");
-      card.classList.add("phase-card");
+    this.slides[index].classList.add("active");
+    this.dots[index].classList.add("active");
+  }
 
-      // 2. Construir la lista de meses dinámicamente
-      let mesesHTML = "";
-      fase.meses.forEach((mes) => {
-        mesesHTML += `<li>${mes}</li>`;
+  // Ejecuta la entrada directa al portal adaptando el rol comprado
+  activarPortalDashboard(nombrePlan) {
+    this.landingView.classList.add("dynamic-hide");
+    this.dashboardView.classList.remove("dynamic-hide");
+    this.navLinks.classList.remove("dynamic-hide");
+
+    // Muta la Navbar para esconder Register
+    this.authBtn.innerHTML = `<i class="fas fa-user-astronaut"></i> CADETE ACADEMY`;
+    this.authBtn.style.background = "rgba(0, 245, 212, 0.15)";
+    this.authBtn.style.color = "#ffffff";
+    this.authBtn.style.borderColor = "#00f5d4";
+
+    // Muestra un mensaje personalizado según el plan elegido
+    this.welcomeBadge.innerText = `Suscripción Activa: Modalidad ${nombrePlan} • Acceso Total Autorizado`;
+  }
+
+  bindCambioDot(handler) {
+    this.dots.forEach((dot) => {
+      dot.addEventListener("click", (e) => {
+        const targetIndex = parseInt(e.target.getAttribute("data-slide"));
+        handler(targetIndex);
       });
-
-      // 3. Estructurar el esqueleto interno con los datos del modelo
-      card.innerHTML = `
-                <div class="phase-card-header">
-                    <span class="phase-badge">${fase.numeroFase}</span>
-                    <span class="phase-weeks">${fase.semanas}</span>
-                </div>
-                <h3>${fase.titulo}</h3>
-                <ul class="phase-months-list">
-                    ${mesesHTML}
-                </ul>
-                <div class="phase-card-footer">
-                    <div class="glow-icon">${fase.iconos[0]}</div>
-                    <div class="glow-icon">${fase.iconos[1]}</div>
-                </div>
-            `;
-
-      // 4. Inyectar la tarjeta en la rejilla del documento
-      this.container.appendChild(card);
     });
+
+    // El botón del primer slide avanza al plan autodidacta
+    this.btnScroll.addEventListener("click", () => handler(1));
   }
 
-  // Escuchador profesional para el botón inferior
-  bindClickComenzar(handler) {
-    this.btnComenzar.addEventListener("click", handler);
+  bindSuscripcionPlanes(handler) {
+    const botonesSuscripcion = document.querySelectorAll(".btn-subscribe-plan");
+    botonesSuscripcion.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        const tipoPlan = e.target.getAttribute("data-plan");
+        handler(tipoPlan);
+      });
+    });
   }
 }

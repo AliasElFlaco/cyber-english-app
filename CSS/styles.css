@@ -4,8 +4,6 @@
   --deep-turquoise: #004d40;
   --light-turquoise: #00f5d4;
   --neon-glow: rgba(0, 245, 212, 0.3);
-
-  /* Cristal Líquido */
   --glass-liquid: rgba(255, 255, 255, 0.02);
   --glass-border-light: rgba(255, 255, 255, 0.12);
   --glass-border-dark: rgba(0, 0, 0, 0.6);
@@ -25,21 +23,7 @@ body {
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
-
-  /* FONDO: Ondas concéntricas de agua simuladas */
   background-image:
-    radial-gradient(
-      circle at 50% 35%,
-      transparent 20%,
-      rgba(0, 77, 64, 0.15) 21%,
-      transparent 25%
-    ),
-    radial-gradient(
-      circle at 50% 35%,
-      transparent 40%,
-      rgba(0, 77, 64, 0.1) 41%,
-      transparent 46%
-    ),
     radial-gradient(
       circle at 50% 25%,
       var(--deep-turquoise) 0%,
@@ -65,21 +49,16 @@ body {
   padding: 12px 24px;
   box-sizing: border-box;
   z-index: 100;
-
   border-top: 1px solid rgba(255, 255, 255, 0.25);
   border-left: 1px solid rgba(255, 255, 255, 0.2);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.8);
-  border-right: 1px solid rgba(0, 0, 0, 0.7);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
 }
 
-/* 🧪 LOGO DOBLE N CON ARCO */
 .nav-logo-nn {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-
 .nn-bridge-wrapper {
   display: flex;
   align-items: center;
@@ -89,7 +68,6 @@ body {
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
-
 .n-letter {
   font-size: 1.4rem;
   font-weight: 800;
@@ -98,7 +76,6 @@ body {
   z-index: 2;
   letter-spacing: 4px;
 }
-
 .nn-arc {
   position: absolute;
   top: 4px;
@@ -110,59 +87,23 @@ body {
   z-index: 1;
   filter: drop-shadow(0 0 8px rgba(0, 245, 212, 0.9));
 }
-
-/* 💥 LOGO GIGANTE DEL HERO CENTRAL */
-.hero-brand-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 25px;
-  margin-bottom: 20px;
-}
-
-.large-logo {
-  padding: 10px 20px;
-  border-radius: 20px;
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.large-logo .n-letter {
-  font-size: 3.8rem;
-  letter-spacing: 12px;
-}
-
-.large-arc {
-  top: 10px;
-  left: 48px;
-  width: 62px;
-  height: 35px;
-  border-top: 6px solid var(--light-turquoise);
-  filter: drop-shadow(0 0 15px rgba(0, 245, 212, 1));
-}
-
-/* TIPOGRAFÍA DE MARCA */
 .brand-text-nn {
   font-size: 1.25rem;
   font-weight: 600;
 }
-
 .nn-silver {
   color: #e2e8f0;
 }
-
 .nn-turquoise {
   color: var(--light-turquoise);
   text-shadow: 0 0 15px rgba(0, 245, 212, 0.5);
 }
 
-/* BOTONES DE LA NAVBAR */
 .nav-links {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-
 .nav-item {
   display: flex;
   flex-direction: column;
@@ -174,37 +115,29 @@ body {
   border-radius: 18px;
   background: rgba(0, 229, 255, 0.04);
   color: #cbd5e1;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.3s ease;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
-  border-left: 1px solid rgba(255, 255, 255, 0.12);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.6);
-  border-right: 1px solid rgba(0, 0, 0, 0.6);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
-
 .nav-item .icon-wrapper {
   font-size: 1.25rem;
   margin-bottom: 6px;
   color: var(--light-turquoise);
 }
-
 .nav-item .nav-text {
   font-size: 0.78rem;
   font-weight: 700;
 }
-
 .nav-item:hover {
   background: rgba(0, 229, 255, 0.15);
   transform: translateY(-2px);
 }
-
 .nav-item.active {
   color: #020408 !important;
   background: linear-gradient(135deg, #00f5d4, #00e5ff) !important;
   font-weight: 800;
   box-shadow: 0 0 25px rgba(0, 229, 255, 0.6);
 }
-
 .nav-item.active .icon-wrapper {
   color: #020408 !important;
 }
@@ -219,13 +152,150 @@ body {
   font-weight: 700;
   cursor: pointer;
 }
-
 .user-status:hover {
   background: #00e5ff !important;
   color: #000000 !important;
 }
 
-/* MAQUETACIÓN CENTRAL PERMANENTE */
+/* 🎬 ESCENARIO DEL CARRUSEL DE ESTUDIOS (ESTILO STARZ PREMIUM) */
+.view-section {
+  width: 100%;
+  transition: opacity 0.5s ease;
+}
+.dynamic-hide {
+  display: none !important;
+}
+
+.starz-carousel {
+  position: relative;
+  width: 100vw;
+  height: 92vh;
+  margin-top: 80px;
+  /* CAMBIADO: Imagen de estudio e interfaces digitales, cero cines */
+  background-image: url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 8%;
+  box-sizing: border-box;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #020408 35%,
+    rgba(2, 4, 8, 0.5) 70%,
+    #020408 100%
+  );
+  z-index: 1;
+}
+
+.carousel-slide {
+  position: relative;
+  z-index: 2;
+  max-width: 650px;
+  text-align: left;
+  display: none; /* Se maneja por JS */
+}
+
+.carousel-slide.active {
+  display: block;
+  animation: fadeInSlide 0.6s ease-in-out;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.offer-badge {
+  background: rgba(0, 245, 212, 0.15);
+  color: var(--light-turquoise);
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.slide-title {
+  font-size: 3.6rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 20px 0;
+  background: linear-gradient(135deg, #ffffff 40%, var(--light-turquoise));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.slide-description {
+  font-size: 1.15rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+.btn-starz-action {
+  background: var(--light-turquoise);
+  color: #020408;
+  border: none;
+  padding: 18px 45px;
+  font-size: 1rem;
+  font-weight: 800;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 30px rgba(0, 245, 212, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-starz-action:hover {
+  background: #ffffff;
+  box-shadow: 0 0 45px rgba(255, 255, 255, 0.6);
+  transform: scale(1.02);
+}
+.btn-starz-action.VIP {
+  background: linear-gradient(135deg, #00e5ff, #00f5d4);
+}
+
+/* INDICADORES DE CARRUSEL */
+.carousel-dots {
+  position: absolute;
+  bottom: 40px;
+  left: 8%;
+  z-index: 5;
+  display: flex;
+  gap: 12px;
+}
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.dot.active {
+  background: var(--light-turquoise);
+  box-shadow: 0 0 10px var(--light-turquoise);
+  width: 28px;
+  border-radius: 6px;
+}
+
+/* 🖥️ MAQUETACIÓN DASHBOARD PANORÁMICO */
 .roadmap-space {
   width: 90%;
   max-width: 1200px;
@@ -233,40 +303,57 @@ body {
   padding: 20px;
   box-sizing: border-box;
 }
-
 .roadmap-header {
   margin-bottom: 55px;
-  text-align: center; /* Centra absolutamente todo el Hero */
+  text-align: center;
 }
-
 .hero-title-nn {
   font-size: 3.5rem;
   font-weight: 800;
   margin: 0;
 }
-
+.hero-brand-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 20px;
+}
+.large-logo {
+  padding: 10px 20px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.large-logo .n-letter {
+  font-size: 3.8rem;
+  letter-spacing: 12px;
+}
+.large-arc {
+  top: 10px;
+  left: 48px;
+  width: 62px;
+  height: 35px;
+  border-top: 6px solid var(--light-turquoise);
+  filter: drop-shadow(0 0 15px rgba(0, 245, 212, 1));
+}
 .hero-tagline {
   font-size: 1.4rem;
   font-weight: 600;
   color: #e2e8f0;
   margin: 25px 0 10px 0;
-  text-align: center;
 }
-
 .hero-subtitle {
   font-size: 0.95rem;
-  color: #94a3b8;
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.6;
-  text-align: center;
+  color: #00f5d4;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 245, 212, 0.2);
 }
 
 .roadmap-section {
   text-align: left;
   margin-top: 20px;
 }
-
 .section-title {
   font-size: 1.3rem;
   color: var(--light-turquoise);
@@ -276,15 +363,12 @@ body {
   padding-bottom: 5px;
 }
 
-/* REJILLA DE TARJETAS FIXED */
 .phases-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
-  margin-bottom: 70px; /* Separación limpia directa con el footer */
+  margin-bottom: 70px;
 }
-
-/* 💎 TARJETAS NEUMÓRFICAS */
 .phase-card {
   background: rgba(10, 25, 35, 0.4);
   backdrop-filter: blur(25px);
@@ -297,19 +381,11 @@ body {
   min-height: 380px;
   border-top: 1px solid var(--glass-border-light);
   border-left: 1px solid var(--glass-border-light);
-  border-bottom: 1px solid var(--glass-border-dark);
-  border-right: 1px solid var(--glass-border-dark);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
-  transition:
-    transform 0.3s ease,
-    border-color 0.3s;
 }
-
 .phase-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(0, 245, 212, 0.4);
 }
-
 .phase-card-header {
   display: flex;
   justify-content: space-between;
@@ -318,26 +394,22 @@ body {
   font-family: monospace;
   margin-bottom: 20px;
 }
-
 .phase-badge {
   background: rgba(0, 245, 212, 0.12);
   padding: 4px 10px;
   border-radius: 8px;
   font-weight: 700;
 }
-
 .phase-card h3 {
   font-size: 1.3rem;
   margin: 0 0 25px 0;
   color: #ffffff;
 }
-
 .phase-months-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .phase-months-list li {
   font-size: 0.92rem;
   color: #cbd5e1;
@@ -345,16 +417,12 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  line-height: 1.4;
 }
-
 .phase-months-list li::before {
   content: "●";
   color: var(--light-turquoise);
   font-size: 0.75rem;
-  margin-top: 2px;
 }
-
 .phase-card-footer {
   display: flex;
   justify-content: space-between;
@@ -362,7 +430,6 @@ body {
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding-top: 20px;
 }
-
 .glow-icon {
   font-size: 1.15rem;
   width: 42px;
@@ -376,84 +443,41 @@ body {
   color: var(--light-turquoise);
 }
 
-/* FOOTER GLOBAL */
 .galaxy-footer {
   width: 100%;
   background: rgba(10, 25, 35, 0.3);
   backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  border-radius: 28px;
   padding: 40px 30px 20px 30px;
   box-sizing: border-box;
   border-top: 1px solid var(--glass-border-light);
-  border-left: 1px solid var(--glass-border-light);
-  box-shadow: 0 -15px 35px rgba(0, 0, 0, 0.5);
 }
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 30px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding-bottom: 30px;
-}
-
-.footer-brand {
-  max-width: 350px;
-}
-
-.footer-brand p {
-  font-size: 0.85rem;
-  color: #718096;
-  margin-top: 12px;
-}
-
-.footer-links-group {
-  display: flex;
-  gap: 25px;
-}
-
-.footer-links-group a {
-  color: #a0aec0;
-  text-decoration: none;
-  font-size: 0.85rem;
-}
-
-.footer-links-group a:hover {
-  color: var(--light-turquoise);
-}
-
-.footer-social {
-  display: flex;
-  gap: 15px;
-}
-
-.footer-social a {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #a0aec0;
-  transition: all 0.3s ease;
-}
-
-.footer-social a:hover {
-  background: var(--light-turquoise) !important;
-}
-
-.footer-social a:hover i {
-  color: #000000 !important;
-}
-
 .footer-bottom {
-  padding-top: 20px;
+  text-align: center;
   font-size: 0.75rem;
   color: #4a5d78;
-  font-family: monospace;
+  margin-top: 10px;
+}
+
+/* Ajustes para el logotipo dentro de la Landing Comercial */
+.landing-brand {
+  justify-content: flex-start !important;
+  margin-bottom: 25px;
+}
+
+.landing-brand-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.landing-brand .large-logo .n-letter {
+  font-size: 2.5rem;
+  letter-spacing: 6px;
+}
+
+.landing-brand .large-arc {
+  top: 7px;
+  left: 32px;
+  width: 42px;
+  height: 22px;
 }
