@@ -58,10 +58,13 @@ class RoadmapView {
     this.dashboardView.classList.remove("dynamic-hide");
     this.navLinks.classList.remove("dynamic-hide");
 
+    // REESTRUCTURACIÓN: Widget de Sesión Premium Minimalista con Icono
     if (this.authContainer) {
       this.authContainer.innerHTML = `
                 <div class="user-profile-wrapper">
-                    <div class="user-avatar">${username.charAt(0)}</div>
+                    <div class="user-avatar-icon">
+                        <i class="fa-solid fa-user-astronaut"></i>
+                    </div>
                     <div class="user-info-meta">
                         <span class="user-name-slug">${username}</span>
                         <span class="user-plan-badge">${nombrePlan}</span>
