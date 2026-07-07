@@ -3,35 +3,26 @@ class RoadmapController {
     this.model = model;
     this.view = view;
 
-    this.slideActual = 0;
+    // Renderizamos los datos pedagógicos del modelo en segundo plano
+    this.view.renderFases(this.model.getFases());
 
-    // Amarra eventos del carrusel y de los botones de planes
-    this.view.bindCambioDot(this.handleControlCarrusel.bind(this));
+    // Conectamos los escuchadores limpios de la vista
+    this.view.bindControlCarrusel(this.handleControlCarrusel.bind(this));
     this.view.bindSuscripcionPlanes(this.handleActivacionPortal.bind(this));
-
-    // Opcional: Auto-avance del carrusel cada 6 segundos para simular ofertas
-    setInterval(() => {
-      if (this.slideActual !== -1) {
-        // Solo si la landing sigue visible
-        this.slideActual = (this.slideActual + 1) % 3;
-        if (
-          this.view.landingView &&
-          !this.view.landingView.classList.contains("dynamic-hide")
-        ) {
-          this.view.cambiarSlide(this.slideActual);
-        }
-      }
-    }, 6000);
   }
 
   handleControlCarrusel(index) {
-    this.slideActual = index;
     this.view.cambiarSlide(index);
   }
 
   handleActivacionPortal(tipoPlan) {
-    this.slideActual = -1; // Detiene el carrusel
-    this.view.activarPortalDashboard(tipoPlan);
-    console.log(`Acceso concedido al Dashboard. Plan: ${tipoPlan}`);
+    const sesionActualizada = this.model.activarSuscripcion(tipoPlan);
+    this.view.activarPortalDashboard(
+      sesionActualizada.username,
+      sesionActualizada.plan,
+    );
+    console.log(
+      `Ecosistema Sincronizado para ${sesionActualizada.username}. Portal Activo.`,
+    );
   }
 }
