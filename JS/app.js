@@ -1,3 +1,10 @@
+// Espera a que todo el HTML esté cargado antes de encender el motor lógico
+document.addEventListener("DOMContentLoaded", () => {
+  const model = new RoadmapModel();
+  const view = new RoadmapView();
+  const controller = new RoadmapController(model, view);
+});
+
 // Clase para moldear la estructura de cada Fase del Roadmap
 class FaseEducativa {
   constructor(id, titulo, semanas, meses, iconos) {
