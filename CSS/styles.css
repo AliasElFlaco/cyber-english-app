@@ -5,7 +5,7 @@
   --light-turquoise: #00f5d4;
   --neon-glow: rgba(0, 245, 212, 0.3);
 
-  /* Cristal Líquido Neumórfico */
+  /* Cristal Líquido */
   --glass-liquid: rgba(255, 255, 255, 0.02);
   --glass-border-light: rgba(255, 255, 255, 0.12);
   --glass-border-dark: rgba(0, 0, 0, 0.6);
@@ -26,7 +26,7 @@ body {
   align-items: center;
   overflow-x: hidden;
 
-  /* FONDO: Efecto de Ondas de Agua Concéntricas y gradiente profundo */
+  /* FONDO: Ondas concéntricas de agua simuladas */
   background-image:
     radial-gradient(
       circle at 50% 35%,
@@ -73,7 +73,7 @@ body {
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
 }
 
-/* 🧪 LOGOTIPO BASE: DOBLE N CON ARCO TURQUESA */
+/* 🧪 LOGO DOBLE N CON ARCO */
 .nav-logo-nn {
   display: flex;
   align-items: center;
@@ -111,7 +111,7 @@ body {
   filter: drop-shadow(0 0 8px rgba(0, 245, 212, 0.9));
 }
 
-/* 💥 MODIFICADORES PARA EL LOGO GIGANTE DEL HERO CENTRAL */
+/* 💥 LOGO GIGANTE DEL HERO CENTRAL */
 .hero-brand-container {
   display: flex;
   align-items: center;
@@ -128,7 +128,7 @@ body {
 }
 
 .large-logo .n-letter {
-  font-size: 3.8rem; /* Tamaño gigante */
+  font-size: 3.8rem;
   letter-spacing: 12px;
 }
 
@@ -137,7 +137,7 @@ body {
   left: 48px;
   width: 62px;
   height: 35px;
-  border-top: 6px solid var(--light-turquoise); /* Arco más grueso y potente */
+  border-top: 6px solid var(--light-turquoise);
   filter: drop-shadow(0 0 15px rgba(0, 245, 212, 1));
 }
 
@@ -186,7 +186,6 @@ body {
   font-size: 1.25rem;
   margin-bottom: 6px;
   color: var(--light-turquoise);
-  text-shadow: 0 0 10px rgba(0, 245, 212, 0.4);
 }
 
 .nav-item .nav-text {
@@ -208,7 +207,6 @@ body {
 
 .nav-item.active .icon-wrapper {
   color: #020408 !important;
-  text-shadow: none !important;
 }
 
 .user-status {
@@ -225,20 +223,24 @@ body {
 .user-status:hover {
   background: #00e5ff !important;
   color: #000000 !important;
-  box-shadow: 0 0 25px #00e5ff;
 }
 
-/* MAQUETACIÓN PANORÁMICA CENTRAL */
+/* MAQUETACIÓN CENTRAL PERMANENTE */
 .roadmap-space {
   width: 90%;
   max-width: 1200px;
-  margin-top: 140px;
+  margin-top: 150px;
   padding: 20px;
   box-sizing: border-box;
 }
 
+.roadmap-header {
+  margin-bottom: 55px;
+  text-align: center; /* Centra absolutamente todo el Hero */
+}
+
 .hero-title-nn {
-  font-size: 3.5rem; /* Título gigante al lado del logo */
+  font-size: 3.5rem;
   font-weight: 800;
   margin: 0;
 }
@@ -248,18 +250,21 @@ body {
   font-weight: 600;
   color: #e2e8f0;
   margin: 25px 0 10px 0;
+  text-align: center;
 }
 
 .hero-subtitle {
   font-size: 0.95rem;
   color: #94a3b8;
   max-width: 800px;
-  margin: 0 auto 50px auto;
+  margin: 0 auto;
   line-height: 1.6;
+  text-align: center;
 }
 
 .roadmap-section {
   text-align: left;
+  margin-top: 20px;
 }
 
 .section-title {
@@ -271,15 +276,15 @@ body {
   padding-bottom: 5px;
 }
 
-/* REJILLA DE TARJETAS EXCLUSIVA */
+/* REJILLA DE TARJETAS FIXED */
 .phases-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
-  margin-bottom: 60px;
+  margin-bottom: 70px; /* Separación limpia directa con el footer */
 }
 
-/* 💎 MAQUETA PREMIUM DE LAS TARJETAS */
+/* 💎 TARJETAS NEUMÓRFICAS */
 .phase-card {
   background: rgba(10, 25, 35, 0.4);
   backdrop-filter: blur(25px);
@@ -303,9 +308,6 @@ body {
 .phase-card:hover {
   transform: translateY(-5px);
   border-color: rgba(0, 245, 212, 0.4);
-  box-shadow:
-    0 25px 50px rgba(0, 245, 212, 0.08),
-    0 25px 50px rgba(0, 0, 0, 0.7);
 }
 
 .phase-card-header {
@@ -322,14 +324,12 @@ body {
   padding: 4px 10px;
   border-radius: 8px;
   font-weight: 700;
-  letter-spacing: 0.5px;
 }
 
 .phase-card h3 {
   font-size: 1.3rem;
   margin: 0 0 25px 0;
   color: #ffffff;
-  font-weight: 700;
 }
 
 .phase-months-list {
@@ -353,7 +353,6 @@ body {
   color: var(--light-turquoise);
   font-size: 0.75rem;
   margin-top: 2px;
-  text-shadow: 0 0 8px var(--light-turquoise);
 }
 
 .phase-card-footer {
@@ -362,7 +361,6 @@ body {
   align-items: center;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding-top: 20px;
-  margin-top: 20px;
 }
 
 .glow-icon {
@@ -376,34 +374,9 @@ body {
   align-items: center;
   justify-content: center;
   color: var(--light-turquoise);
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.05);
-  filter: drop-shadow(0 0 6px rgba(0, 245, 212, 0.3));
 }
 
-/* BOTÓN DE ACCIÓN */
-.roadmap-footer {
-  margin: 40px 0 80px 0;
-}
-
-.btn-galaxy-action {
-  background: linear-gradient(90deg, #00796b, var(--light-turquoise));
-  border: none;
-  color: #020408;
-  padding: 18px 50px;
-  font-size: 1.05rem;
-  font-weight: 700;
-  border-radius: 30px;
-  cursor: pointer;
-  box-shadow: 0 0 30px rgba(0, 245, 212, 0.6);
-  transition: all 0.3s ease;
-}
-
-.btn-galaxy-action:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 45px var(--light-turquoise);
-}
-
-/* FOOTER */
+/* FOOTER GLOBAL */
 .galaxy-footer {
   width: 100%;
   background: rgba(10, 25, 35, 0.3);
@@ -425,7 +398,6 @@ body {
   gap: 30px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   padding-bottom: 30px;
-  text-align: left;
 }
 
 .footer-brand {
@@ -436,7 +408,6 @@ body {
   font-size: 0.85rem;
   color: #718096;
   margin-top: 12px;
-  line-height: 1.5;
 }
 
 .footer-links-group {
@@ -452,7 +423,6 @@ body {
 
 .footer-links-group a:hover {
   color: var(--light-turquoise);
-  text-shadow: 0 0 8px var(--light-turquoise);
 }
 
 .footer-social {
@@ -475,7 +445,6 @@ body {
 
 .footer-social a:hover {
   background: var(--light-turquoise) !important;
-  transform: translateY(-3px);
 }
 
 .footer-social a:hover i {
