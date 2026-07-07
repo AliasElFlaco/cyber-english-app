@@ -1,10 +1,13 @@
 :root {
-  --bg-space: #050b14;
-  --electric-blue: #00e5ff;
-  --deep-turquoise: #00a896;
-  --neon-glow: rgba(0, 229, 255, 0.25);
-  --glass-liquid: rgba(255, 255, 255, 0.02);
-  --glass-border-light: rgba(255, 255, 255, 0.1);
+  --bg-space: #020408; /* Negro puro base */
+  --electric-blue: #00e5ff; /* Azul neón para acentos */
+  --deep-turquoise: #004d40; /* Turquesa oscuro para el gradiente de fondo */
+  --light-turquoise: #00f5d4; /* Turquesa brillante de la marca NearNative */
+  --neon-glow: rgba(0, 245, 212, 0.3);
+
+  /* Cristal Neumórfico Líquido Premium */
+  --glass-liquid: rgba(255, 255, 255, 0.015);
+  --glass-border-light: rgba(255, 255, 255, 0.12);
   --glass-border-dark: rgba(0, 0, 0, 0.6);
 }
 
@@ -22,36 +25,38 @@ body {
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
-  /* Fondo tecnológico con circuitos y estrellas difusas sugerido en la imagen */
+
+  /* FONDO: Gradiente fluido de negro a turquesa profundo con malla digital */
   background-image:
     radial-gradient(
-      circle at 10% 20%,
-      rgba(0, 229, 255, 0.05) 0%,
-      transparent 40%
+      circle at 50% -20%,
+      var(--deep-turquoise) 0%,
+      transparent 60%
     ),
     radial-gradient(
-      circle at 90% 30%,
-      rgba(0, 168, 150, 0.06) 0%,
+      circle at 90% 80%,
+      rgba(0, 168, 150, 0.08) 0%,
       transparent 50%
     ),
-    radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
-  background-size:
-    100% 100%,
-    100% 100%,
-    30px 30px;
+    linear-gradient(135deg, #020408 0%, #05141c 100%);
+  background-attachment: fixed;
 }
 
-/* 🛸 NAVBAR CRISTALINA RESTRUCTURADA (Estilo image_54dbe5.png) */
-/* 🛸 NAVBAR PREMIUM: LIGHT UP PERMANENTE Y CORRECCIÓN DE BUGS */
+/* 🛸 NAVBAR PREMIUM: LIGHT UP PERMANENTE Y BORDES 3D DEFINIDOS */
 .galaxy-nav {
   position: fixed;
   top: 20px;
   width: 95%;
   max-width: 1250px;
-  background: rgba(4, 12, 22, 0.4); /* Un toque más denso para contrastar */
+  background: rgba(
+    4,
+    12,
+    22,
+    0.4
+  ); /* Denso para un desenfoque de fondo perfecto */
   backdrop-filter: blur(35px) saturate(200%);
   -webkit-backdrop-filter: blur(35px) saturate(200%);
-  border-radius: 24px;
+  border-radius: 28px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -59,6 +64,7 @@ body {
   box-sizing: border-box;
   z-index: 100;
 
+  /* Bordes tridimensionales de cristal cortado */
   border-top: 1px solid rgba(255, 255, 255, 0.25);
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(0, 0, 0, 0.8);
@@ -66,13 +72,68 @@ body {
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
 }
 
+/* 🧪 ESTRUCTURA DEL LOGO: DOBLE N CON ARCO TURQUESA */
+.nav-logo-nn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nn-bridge-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 4px 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.n-letter {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #b0bfc6; /* Tono plateado metálico */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  letter-spacing: 4px;
+}
+
+/* El puente de energía neón turquesa que une las dos N */
+.nn-arc {
+  position: absolute;
+  top: 4px;
+  left: 18px;
+  width: 22px;
+  height: 14px;
+  border-radius: 50% 50% 0 0;
+  border-top: 3px solid var(--light-turquoise);
+  z-index: 1;
+  filter: drop-shadow(0 0 6px rgba(0, 245, 212, 0.8));
+}
+
+/* COLORES DE LA TIPOGRAFÍA DE MARCA */
+.brand-text-nn {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.3px;
+}
+
+.nn-silver {
+  color: #d1d5db; /* Plata/Blanco pulido */
+}
+
+.nn-turquoise {
+  color: var(--light-turquoise); /* Turquesa encendido */
+  text-shadow: 0 0 10px rgba(0, 245, 212, 0.4);
+}
+
+/* BOTONES CON EFECTO LIGHT UP CONSTANTE */
 .nav-links {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* EFECTO VERDE CRISTALINO VIVO POR DEFECTO */
 .nav-item {
   display: flex;
   flex-direction: column;
@@ -83,9 +144,9 @@ body {
   padding: 14px 10px;
   border-radius: 18px;
 
-  /* Incrementamos la presencia del verde turquesa de fondo en reposo */
+  /* Verde turquesa de fondo en reposo para dar vida constante */
   background: rgba(0, 229, 255, 0.08);
-  color: #e2e8f0; /* Texto claro de alta visibilidad */
+  color: #e2e8f0;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
   border-top: 1px solid rgba(255, 255, 255, 0.18);
@@ -101,7 +162,7 @@ body {
 .nav-item .icon-wrapper {
   font-size: 1.25rem;
   margin-bottom: 6px;
-  color: #00f5d4;
+  color: var(--light-turquoise);
   text-shadow: 0 0 10px rgba(0, 245, 212, 0.4);
   transition:
     transform 0.3s ease,
@@ -114,7 +175,7 @@ body {
   letter-spacing: 0.3px;
 }
 
-/* Hover: Se enciende al máximo */
+/* Hover en los botones del Nav: Se enciende más */
 .nav-item:hover {
   color: #ffffff;
   background: rgba(0, 229, 255, 0.18);
@@ -142,7 +203,7 @@ body {
   text-shadow: none !important;
 }
 
-/* 🔑 FIX DEL BOTÓN SIGN IN / REGISTER */
+/* 🔑 BOTÓN SIGN IN / REGISTER EXCLUSIVO */
 .user-status {
   display: flex;
   align-items: center;
@@ -162,7 +223,7 @@ body {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Solución del defecto: Forzamos el color negro puro en el texto e icono al hacer hover */
+/* Forzamos el color negro puro en el texto al hacer hover para solucionar el bug */
 .user-status:hover {
   background: #00e5ff !important;
   color: #000000 !important;
@@ -170,11 +231,11 @@ body {
   transform: translateY(-2px);
 }
 
-/* CONTENEDOR PANORÁMICO */
+/* 🖥️ MAQUETACIÓN PANORÁMICA CENTRAL */
 .roadmap-space {
   width: 90%;
   max-width: 1200px;
-  margin-top: 120px;
+  margin-top: 150px;
   padding: 20px;
   box-sizing: border-box;
   text-align: center;
@@ -184,32 +245,35 @@ body {
   margin-bottom: 50px;
 }
 
-.hero-title {
-  font-size: 2rem;
+.hero-title-nn {
+  font-size: 2.1rem;
   font-weight: 700;
-  letter-spacing: -0.5px;
   margin-bottom: 15px;
+  line-height: 1.3;
 }
 
 .hero-subtitle {
-  font-size: 1rem;
-  color: #a0aec0;
+  font-size: 0.95rem;
+  color: #94a3b8;
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.6;
 }
 
-.section-title {
-  font-size: 1.4rem;
-  color: var(--electric-blue);
+.roadmap-section {
   text-align: left;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  color: var(--light-turquoise);
   margin-bottom: 30px;
-  border-bottom: 2px solid var(--deep-turquoise);
+  border-bottom: 2px solid #00796b;
   display: inline-block;
   padding-bottom: 5px;
 }
 
-/* REJILLA DE TRES COLUMNAS PARA LAS FASES (Mismo aspecto que image_43fe49.jpg) */
+/* REJILLA DE LAS TARJETAS */
 .phases-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -217,14 +281,13 @@ body {
   margin-bottom: 50px;
 }
 
-/* TARJETAS NEUMÓRFICAS DE CRISTAL LÍQUIDO */
+/* 💎 TARJETAS NEUMÓRFICAS DE CRISTAL LÍQUIDO */
 .phase-card {
   background: var(--glass-liquid);
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
   border-radius: 24px;
   padding: 30px;
-  text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -232,17 +295,17 @@ body {
   border-left: 1px solid var(--glass-border-light);
   border-bottom: 1px solid var(--glass-border-dark);
   border-right: 1px solid var(--glass-border-dark);
-  box-shadow:
-    0 20px 45px rgba(0, 0, 0, 0.6),
-    inset 0 1px 3px rgba(255, 255, 255, 0.05);
-  transition: transform 0.3s ease;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s;
 }
 
 .phase-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(0, 229, 255, 0.3);
+  border-color: rgba(0, 245, 212, 0.3);
   box-shadow:
-    0 25px 50px rgba(0, 229, 255, 0.05),
+    0 25px 50px rgba(0, 245, 212, 0.05),
     0 20px 45px rgba(0, 0, 0, 0.6);
 }
 
@@ -250,13 +313,13 @@ body {
   display: flex;
   justify-content: space-between;
   font-size: 0.75rem;
-  color: var(--deep-turquoise);
+  color: var(--light-turquoise);
   font-family: monospace;
   margin-bottom: 15px;
 }
 
 .phase-badge {
-  background: rgba(0, 168, 150, 0.15);
+  background: rgba(0, 245, 212, 0.1);
   padding: 3px 8px;
   border-radius: 8px;
   font-weight: 600;
@@ -285,12 +348,11 @@ body {
 
 .phase-months-list li::before {
   content: "●";
-  color: var(--electric-blue);
+  color: var(--light-turquoise);
   font-size: 0.8rem;
-  text-shadow: 0 0 8px var(--electric-blue);
+  text-shadow: 0 0 8px var(--light-turquoise);
 }
 
-/* ICONOS RESPLANDECIENTES INFERIORES */
 .phase-card-footer {
   display: flex;
   justify-content: space-between;
@@ -300,85 +362,44 @@ body {
 }
 
 .glow-icon {
-  font-size: 1.3rem;
-  width: 40px;
-  height: 40px;
+  font-size: 1.2rem;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: rgba(0, 229, 255, 0.03);
+  background: rgba(0, 229, 255, 0.02);
   border: 1px solid rgba(0, 229, 255, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 10px rgba(0, 229, 255, 0.1);
-  color: var(--electric-blue);
-  text-shadow: 0 0 8px var(--electric-blue);
+  color: var(--light-turquoise);
+  text-shadow: 0 0 8px var(--light-turquoise);
 }
 
-/* ⚡ BOTÓN INFERIOR DE ALTA VELOCIDAD DE LA IMAGEN */
+/* ⚡ BOTÓN INFERIOR CÓSMICO */
+.roadmap-footer {
+  margin-bottom: 60px;
+}
+
 .btn-galaxy-action {
-  background: linear-gradient(
-    90deg,
-    var(--deep-turquoise),
-    var(--electric-blue)
-  );
+  background: linear-gradient(90deg, #00796b, var(--light-turquoise));
   border: none;
-  color: #030712;
+  color: #020408;
   padding: 16px 45px;
   font-size: 1.05rem;
   font-weight: 700;
   border-radius: 30px;
   cursor: pointer;
-  box-shadow: 0 0 25px var(--electric-blue);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 25px var(--light-turquoise);
+  transition: all 0.3s ease;
 }
 
 .btn-galaxy-action:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 0 40px var(--electric-blue);
+  transform: translateY(-3px);
+  box-shadow: 0 0 40px var(--light-turquoise);
 }
 
-/* 🧪 LOGO REFORMADO: LA "N" ENCENDIDA Y BASE OSCURA */
-.logo-fluid-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: rgba(4, 12, 22, 0.6); /* Fondo de caja oscuro para contraste */
-
-  /* La letra N ahora es la que brilla y emite la luz verde neón */
-  color: #00f5d4;
-  text-shadow:
-    0 0 10px rgba(0, 245, 212, 0.8),
-    0 0 20px rgba(0, 245, 212, 0.4);
-
-  font-family: "Segoe UI", sans-serif;
-  font-weight: 900;
-  font-size: 1.1rem;
-  border-radius: 10px;
-  margin-right: 12px;
-  border: 1px solid rgba(0, 229, 255, 0.25);
-  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1);
-  vertical-align: middle;
-}
-
-/* TIPOGRAFÍA DEL LOGO CON DOS COLORES */
-.brand-nexum {
-  color: #ffffff;
-  font-weight: 800;
-  letter-spacing: 2px;
-}
-
-.brand-english {
-  color: #00f5d4; /* Color turquesa/verde cristal encendido */
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-shadow: 0 0 10px rgba(0, 245, 212, 0.3);
-}
-
-/* 🌌 DISEÑO DEL FOOTER DE CRISTAL NEUMÓRFICO */
+/* 🌌 NUEVO FOOTER DE CRISTAL NEUMÓRFICO */
 .galaxy-footer {
-  margin-top: 100px;
   width: 100%;
   background: rgba(10, 25, 35, 0.2);
   backdrop-filter: blur(25px);
@@ -408,13 +429,13 @@ body {
 }
 
 .footer-brand {
-  max-width: 300px;
+  max-width: 350px;
 }
 
 .footer-brand p {
   font-size: 0.85rem;
   color: #718096;
-  margin-top: 10px;
+  margin-top: 12px;
   line-height: 1.5;
 }
 
@@ -435,7 +456,12 @@ body {
   text-shadow: 0 0 8px var(--neon-glow);
 }
 
-/* 🔑 FIX DE REDES SOCIALES EN EL FOOTER */
+/* FIX DE REDES SOCIALES (EVITA DESAPARECER EN HOVER) */
+.footer-social {
+  display: flex;
+  gap: 15px;
+}
+
 .footer-social a {
   width: 40px;
   height: 40px;
@@ -445,24 +471,24 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #a0aec0; /* Color gris claro por defecto */
+  color: #a0aec0;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
 }
 
-/* Corrección de la pérdida de identidad al hacer hover */
 .footer-social a:hover {
-  background: #00f5d4 !important; /* Fondo encendido */
+  background: var(--light-turquoise) !important;
   box-shadow: 0 0 20px rgba(0, 245, 212, 0.6);
   transform: translateY(-3px);
 }
 
-/* Forzamos a que el icono interno (la fuente de Font Awesome) cambie a negro puro */
+/* Fuerza al icono a cambiar a negro puro en el hover */
 .footer-social a:hover i {
   color: #000000 !important;
   text-shadow: none !important;
 }
+
 .footer-bottom {
   padding-top: 20px;
   font-size: 0.75rem;
