@@ -712,3 +712,30 @@ body {
   margin-top: 15px;
   font-family: monospace;
 }
+
+/* ==========================================================================
+   🤖 FEEDBACK VISUAL DE INTELIGENCIA FONÉTICA (SPRINT)
+   ========================================================================== */
+
+/* Asegurar que las barras del visualizador inicien pausadas hasta presionar capturar */
+.visualizer-mock .bar {
+  animation-play-state: paused;
+}
+
+/* Destello de Aprobación Verde Neón */
+.voice-sprint-panel.approved-flash {
+  border-color: var(--light-turquoise) !important;
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.8),
+    0 0 35px rgba(0, 245, 212, 0.5) !important;
+  transition: all 0.4s ease;
+}
+
+/* Destello de Rechazo Rojo */
+.voice-sprint-panel.rejected-flash {
+  border-color: #ef4444 !important;
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.8),
+    0 0 35px rgba(239, 68, 68, 0.4) !important;
+  transition: all 0.4s ease;
+}

@@ -5,11 +5,12 @@ class RoadmapController {
     this.slideActual = 0;
     this.isUserLoggedIn = false;
 
-    // Variables de control de hardware de audio
-    this.mediaRecorder = null;
+    // Motores de Audio y Reconocimiento Fonético
+    this.recognition = null;
     this.isRecording = false;
+    this.transcripcionUsuario = "";
 
-    // Renderizado
+    // Renderizado Inicial
     this.view.renderFases(this.model.getFases());
     this.view.renderGimnasia(this.model.getEjercicioActive());
 
@@ -22,9 +23,12 @@ class RoadmapController {
       () => this.handleRegresoHome(),
     );
 
-    // Conexión de herramientas fonéticas interactivas
+    // Conexión de herramientas fonéticas
     this.view.bindEscucharPalabra(this.handlePronunciacionNativa.bind(this));
     this.view.bindCapturaMicrofono(this.handleGrabacionUsuario.bind(this));
+
+    // Configuración Inicial del Motor de Reconocimiento de Voz
+    this.inicializarMotorReconocimiento();
 
     // Intervalo del Carrusel
     this.carruselInterval = setInterval(() => {
@@ -56,53 +60,120 @@ class RoadmapController {
     }
   }
 
-  // 🔥 SISTEMA 1: Motor de Pronunciación Nativa Americana (Text-To-Speech)
+  // 🔊 Motor de Pronunciación Nativa Americana (Text-To-Speech)
   handlePronunciacionNativa(palabra) {
     if ("speechSynthesis" in window) {
       const utterance = new SpeechSynthesisUtterance(palabra);
-      utterance.lang = "en-US"; // Fuerza el acento nativo americano
-      utterance.rate = 0.85; // Velocidad ligeramente reducida para captar la gesticulación muscular
+      utterance.lang = "en-US";
+      utterance.rate = 0.85;
       window.speechSynthesis.speak(utterance);
-    } else {
-      alert("Tu navegador no soporta síntesis de voz.");
     }
   }
 
-  // 🔥 SISTEMA 2: Capturador del Micrófono Físico (MediaRecorder API)
-  async handleGrabacionUsuario(botonElemento) {
-    if (!this.isRecording) {
-      try {
-        // Solicita autorización de hardware al sistema operativo
-        const stream = await navigator.mediaDevices.getUserMedia({
-          audio: true,
-        });
-        this.mediaRecorder = new MediaRecorder(stream);
-        this.mediaRecorder.start();
+  // 🤖 Inicialización de la API de Reconocimiento de Voz
+  inicializarMotorReconocimiento() {
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+      this.recognition = new SpeechRecognition();
+      this.recognition.lang = "en-US"; // Evalúa bajo los estándares del inglés americano
+      this.recognition.interimResults = false;
+      this.recognition.maxAlternatives = 1;
 
-        this.isRecording = true;
-        botonElemento.innerHTML = `<i class="fa-solid fa-stop"></i> DETENER SPRINT`;
-        botonElemento.style.background = "#ef4444"; // Muta a rojo de grabación activa
-        botonElemento.style.boxShadow = "0 0 20px rgba(239, 68, 68, 0.5)";
-        console.log("Capturador de audio encendido. Entrenando...");
-      } catch (err) {
-        alert(
-          "Error al acceder al micrófono. Por favor, concede los permisos en la barra de direcciones.",
-        );
-        console.error(err);
-      }
+      this.recognition.onresult = (event) => {
+        this.transcripcionUsuario = event.results[0][0].transcript
+          .toLowerCase()
+          .trim();
+        console.log(`Transcripción detectada: "${this.transcripcionUsuario}"`);
+        this.validarPronunciacion();
+      };
+
+      this.recognition.onerror = (err) => {
+        console.error("Error en el reconocimiento de voz: ", err.error);
+        if (err.error === "not-allowed") {
+          alert(
+            "Acceso denegado al micrófono. Concede los permisos en el navegador.",
+          );
+        }
+      };
     } else {
-      // Detiene la captura física de audio
-      if (this.mediaRecorder) {
-        this.mediaRecorder.stop();
-        // Apaga los canales del micrófono para liberar el hardware
-        this.mediaRecorder.stream.getTracks().forEach((track) => track.stop());
-      }
+      console.warn(
+        "Este navegador no soporta SpeechRecognition de forma nativa.",
+      );
+    }
+  }
 
+  // 🎙️ Capturador Inteligente del Micrófono Físico
+  handleGrabacionUsuario(botonElemento) {
+    if (!this.recognition) {
+      alert(
+        "El reconocimiento de voz no está disponible en este navegador. Te recomendamos usar Google Chrome.",
+      );
+      return;
+    }
+
+    // Remover feedback visual previo de validación si existe
+    const targetCard = document.querySelector(".voice-sprint-panel");
+    if (targetCard)
+      targetCard.classList.remove("approved-flash", "rejected-flash");
+
+    if (!this.isRecording) {
+      this.transcripcionUsuario = "";
+      this.recognition.start();
+      this.isRecording = true;
+
+      botonElemento.innerHTML = `<i class="fa-solid fa-stop"></i> DETENER SPRINT`;
+      botonElemento.style.background = "#ef4444";
+      botonElemento.style.boxShadow = "0 0 20px rgba(239, 68, 68, 0.5)";
+
+      // Animación activa de las ondas
+      document
+        .querySelectorAll(".visualizer-mock .bar")
+        .forEach((bar) => (bar.style.animationPlayState = "running"));
+    } else {
+      this.recognition.stop();
       this.isRecording = false;
+
       botonElemento.innerHTML = `<i class="fa-solid fa-microphone"></i> CAPTURAR AUDIO`;
       botonElemento.style.background = "var(--light-turquoise)";
       botonElemento.style.boxShadow = "0 0 25px rgba(0, 245, 212, 0.4)";
-      console.log("Sprint finalizado con éxito. Audio procesado.");
+
+      // Pausar animación de ondas
+      document
+        .querySelectorAll(".visualizer-mock .bar")
+        .forEach((bar) => (bar.style.animationPlayState = "paused"));
+    }
+  }
+
+  // 🎯 Motor Evaluador Pedagógico
+  validarPronunciacion() {
+    const ejercicioActive = this.model.getEjercicioActive();
+    const palabrasClave = ejercicioActive.ejemploPalabras.map((word) =>
+      word.toLowerCase(),
+    );
+    const targetCard = document.querySelector(".voice-sprint-panel");
+
+    // Comprueba si la transcripción contiene alguna de las palabras del entrenamiento
+    const exito = palabrasClave.some((palabra) =>
+      this.transcripcionUsuario.includes(palabra),
+    );
+
+    if (targetCard) {
+      if (exito) {
+        targetCard.classList.add("approved-flash");
+        console.log("¡Pronunciación Aprobada!");
+
+        // Pequeño sonido de éxito simulado por la API de voz
+        const approvalAudio = new SpeechSynthesisUtterance(
+          "Excellent, Kelvin!",
+        );
+        approvalAudio.lang = "en-US";
+        approvalAudio.rate = 1.1;
+        window.speechSynthesis.speak(approvalAudio);
+      } else {
+        targetCard.classList.add("rejected-flash");
+        console.log("Pronunciación no reconocida. Intenta de nuevo.");
+      }
     }
   }
 }
