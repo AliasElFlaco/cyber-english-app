@@ -42,11 +42,19 @@ class RoadmapView {
     });
   }
 
+  // Corregido: Ahora cada palabra es un botón con gatillo de audio nativo
   renderGimnasia(ejercicio) {
     if (!this.exerciseContainer) return;
     const pills = ejercicio.ejemploPalabras
-      .map((word) => `<span class="word-pill">${word}</span>`)
+      .map(
+        (word) => `
+            <button class="word-pill btn-listen-word" data-word="${word}">
+                <i class="fa-solid fa-volume-high"></i> ${word}
+            </button>
+        `,
+      )
       .join("");
+
     this.exerciseContainer.innerHTML = `
             <div>
                 <div class="phase-card-header"><span class="phase-badge">FONEMA ${ejercicio.fonema}</span><span>GIMNASIA ACTIVA</span></div>
@@ -55,7 +63,7 @@ class RoadmapView {
                 <div class="fonetica-instruction-box">
                     <strong><i class="fa-solid fa-gears"></i> Mecánica Muscular:</strong><br>${ejercicio.instruccionMuscular}
                 </div>
-                <h4 style="margin: 15px 0 10px 0; font-size: 0.85rem; color: #00f5d4;">Palabras de Entrenamiento:</h4>
+                <h4 style="margin: 15px 0 10px 0; font-size: 0.85rem; color: #00f5d4;">Palabras de Entrenamiento (Haz clic para escuchar):</h4>
                 <div class="word-pill-grid">${pills}</div>
             </div>
         `;
@@ -93,7 +101,6 @@ class RoadmapView {
   navegarHaciaPestaña(targetViewId) {
     this.dashboardView.classList.add("dynamic-hide");
     this.foneticaView.classList.add("dynamic-hide");
-
     document
       .querySelectorAll(".nav-item")
       .forEach((item) => item.classList.remove("active"));
@@ -142,5 +149,26 @@ class RoadmapView {
         e.preventDefault();
         handlerLogo();
       });
+  }
+
+  // Habilitadores de audio y micro para interactividad directa
+  bindEscucharPalabra(handler) {
+    document.body.addEventListener("click", (e) => {
+      const botonPalabra = e.target.closest(".btn-listen-word");
+      if (botonPalabra) {
+        e.preventDefault();
+        handler(botonPalabra.getAttribute("data-word"));
+      }
+    });
+  }
+
+  bindCapturaMicrofono(handler) {
+    const btnRecord = document.getElementById("btn-record-fonetica");
+    if (btnRecord) {
+      btnRecord.addEventListener("click", (e) => {
+        e.preventDefault();
+        handler(btnRecord);
+      });
+    }
   }
 }
