@@ -3,18 +3,27 @@ class RoadmapController {
     this.model = model;
     this.view = view;
     this.slideActual = 0;
+    this.isUserLoggedIn = false;
 
-    // Renderizamos los datos pedagógicos
+    // Renderizado inicial
     this.view.renderFases(this.model.getFases());
+    this.view.renderGimnasia(this.model.getEjercicioActive());
 
-    // Conectamos los escuchadores de la vista
+    // Vinculación de eventos
     this.view.bindControlCarrusel(this.handleControlCarrusel.bind(this));
     this.view.bindSuscripcionPlanes(this.handleActivacionPortal.bind(this));
+    this.view.bindNavegacionInterna(
+      () => this.view.navegarHaciaPestaña("map"),
+      () => this.view.navegarHaciaPestaña("fonetica"),
+      () => this.handleRegresoHome(),
+    );
 
-    // 🔄 AUTO-AVANCE INTELIGENTE: Cambia de oferta automáticamente cada 5 segundos
+    // Auto-avance de ofertas en la Landing
     this.carruselInterval = setInterval(() => {
-      this.slideActual = (this.slideActual + 1) % 3;
-      this.view.cambiarSlide(this.slideActual);
+      if (!this.isUserLoggedIn) {
+        this.slideActual = (this.slideActual + 1) % 3;
+        this.view.cambiarSlide(this.slideActual);
+      }
     }, 5000);
   }
 
@@ -24,16 +33,18 @@ class RoadmapController {
   }
 
   handleActivacionPortal(tipoPlan) {
-    // 🛑 APAGAR EL CARRUSEL: Detiene el auto-avance para siempre al entrar al portal
+    this.isUserLoggedIn = true;
     clearInterval(this.carruselInterval);
+    const sesion = this.model.activarSuscripcion(tipoPlan);
+    this.view.activarPortalDashboard(sesion.username, sesion.plan);
+  }
 
-    const sesionActualizada = this.model.activarSuscripcion(tipoPlan);
-    this.view.activarPortalDashboard(
-      sesionActualizada.username,
-      sesionActualizada.plan,
-    );
-    console.log(
-      `Ecosistema Sincronizado para ${sesionActualizada.username}. Carrusel apagado.`,
-    );
+  handleRegresoHome() {
+    if (!this.isUserLoggedIn) {
+      this.view.landingView.classList.remove("dynamic-hide");
+      this.view.dashboardView.classList.add("dynamic-hide");
+      this.view.foneticaView.classList.add("dynamic-hide");
+      this.view.navLinks.classList.add("dynamic-hide");
+    }
   }
 }

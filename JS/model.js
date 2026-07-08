@@ -8,6 +8,24 @@ class FaseEducativa {
   }
 }
 
+class EjercicioFonetico {
+  constructor(
+    id,
+    fonema,
+    titulo,
+    descripcion,
+    instruccionMuscular,
+    ejemploPalabras,
+  ) {
+    this.id = id;
+    this.fonema = fonema;
+    this.titulo = titulo;
+    this.descripcion = descripcion;
+    this.instruccionMuscular = instruccionMuscular;
+    this.ejemploPalabras = ejemploPalabras;
+  }
+}
+
 class RoadmapModel {
   constructor() {
     this.fases = [
@@ -43,21 +61,27 @@ class RoadmapModel {
       ),
     ];
 
-    this.session = {
-      isSubscribed: false,
-      userRole: "VISITOR",
-      plan: null,
-      username: "Kelvin",
-    };
+    this.ejercicioGimnasia = new EjercicioFonetico(
+      1,
+      "/æ/",
+      "La vocal corta 'A' americana (La Mandíbula Caída)",
+      "Sonido clave ausente en español. Es una transición física exacta entre la A y la E.",
+      "Descansa y baja la mandíbula completamente al máximo como si fueras a gritar una 'A', pero intenta emitir una 'E' sostenida desde la garganta sin cerrar los labios.",
+      ["Cat", "Bat", "Mad", "Apple", "Hand", "Fast"],
+    );
+
+    this.session = { isSubscribed: false, plan: null, username: "Kelvin" };
   }
 
   getFases() {
     return this.fases;
   }
+  getEjercicioActive() {
+    return this.ejercicioGimnasia;
+  }
 
   activarSuscripcion(nombrePlan) {
     this.session.isSubscribed = true;
-    this.session.userRole = "SUBSCRIBED_CADETE";
     this.session.plan = nombrePlan;
     return this.session;
   }
