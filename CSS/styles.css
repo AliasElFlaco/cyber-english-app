@@ -1,5 +1,5 @@
 /* ==========================================================================
-   🌌 NEARNATIVEENGLISH - ARQUITECTURA SÓLIDA DE ESTILOS DE PRODUCCIÓN
+   🌌 NEARNATIVEENGLISH - CORE LAYOUT & REFINED TYPOGRAPHY (2026)
    ========================================================================== */
 
 :root {
@@ -31,7 +31,6 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 
-  /* FONDO SIMULADO DE AGUA CONCÉNTRICA */
   background-image:
     radial-gradient(
       circle at 50% 35%,
@@ -49,7 +48,7 @@ body {
 }
 
 /* ==========================================================================
-   🛸 NAVBAR & ELEMENTOS DE NAVEGACIÓN DENTRO DEL PORTAL
+   🛸 NAVBAR & ELEMENTOS DE INTERFAZ GLOBAL
    ========================================================================== */
 .galaxy-nav {
   position: fixed;
@@ -67,7 +66,7 @@ body {
   box-sizing: border-box;
   z-index: 1000;
   border: 1px solid var(--glass-border);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
 }
 
 .nav-logo-nn {
@@ -178,7 +177,7 @@ body {
 }
 
 /* ==========================================================================
-   🧑‍🚀 WIDGET DE USUARIO ULTRA-SLIM DE KELVIN
+   🧑‍🚀 WIDGET DE USUARIO ULTRA-SLIM
    ========================================================================== */
 .user-profile-wrapper {
   display: flex;
@@ -221,7 +220,7 @@ body {
 }
 
 /* ==========================================================================
-   🎬 LANDING COMERCIAL & CARRUSEL STARZ
+   🎬 LANDING COMERCIAL EN ESCENARIO CENTRADO CINEMATOGRÁFICO
    ========================================================================== */
 .view-section {
   width: 100%;
@@ -233,14 +232,14 @@ body {
 .starz-carousel {
   position: relative;
   width: 100vw;
-  height: 88vh;
+  height: 94vh;
   margin-top: 80px;
   background-image: url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1920");
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
-  padding-left: 8%;
+  justify-content: center; /* Centrado horizontal del layout */
   box-sizing: border-box;
 }
 
@@ -250,128 +249,170 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    #020408 35%,
-    rgba(2, 4, 8, 0.5) 70%,
-    #020408 100%
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(2, 4, 8, 0.45) 0%,
+    #020408 85%
   );
   z-index: 1;
 }
+
+/* Contenedor unificado para centrado absoluto */
 .carousel-slide {
   position: relative;
   z-index: 2;
-  max-width: 600px;
-  text-align: left;
+  width: 100%;
+  max-width: 850px;
   display: none;
 }
 .carousel-slide.active {
   display: block;
-  animation: fadeInSlide 0.4s ease-out;
+  animation: fadeInSlideCentered 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-@keyframes fadeInSlide {
+@keyframes fadeInSlideCentered {
   from {
     opacity: 0;
-    transform: translateX(10px);
+    transform: scale(0.97);
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: scale(1);
   }
 }
 
-.landing-brand {
-  justify-content: flex-start !important;
-  margin-bottom: 15px;
-}
-.landing-brand-title {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin: 0;
-}
-.landing-brand .large-logo .n-letter {
-  font-size: 2rem;
-  letter-spacing: 5px;
-}
-.landing-brand .large-arc {
-  top: 6px;
-  left: 26px;
-  width: 34px;
-  height: 18px;
+.slide-content-centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centrado perfecto de elementos hijos */
+  text-align: center;
+  padding: 0 30px;
 }
 
+/* 🔥 INTEGRACIÓN DE LOGO GIGANTE EN EL ANUNCIO (MÁXIMA JERARQUÍA) */
+.landing-brand-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.large-logo-cinema {
+  padding: 14px 28px;
+  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+.large-logo-cinema .n-letter {
+  font-size: 3.5rem; /* El logo toma proporciones gigantes en el carrusel */
+  font-weight: 800;
+  letter-spacing: 8px;
+}
+
+.large-arc-cinema {
+  top: 14px;
+  left: 45px;
+  width: 58px;
+  height: 26px;
+  border-top: 5px solid var(--light-turquoise);
+  filter: drop-shadow(0 0 12px var(--light-turquoise));
+}
+
+.landing-brand-title-center {
+  font-size: 2.8rem; /* Estilizado y balanceado debajo de las letras */
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.badge-wrapper {
+  margin-bottom: 20px;
+}
 .offer-badge {
-  background: rgba(0, 245, 212, 0.1);
+  background: rgba(0, 245, 212, 0.12);
   color: var(--light-turquoise);
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-size: 0.72rem;
+  padding: 5px 14px;
+  border-radius: 6px;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 1px;
+  border: 1px solid rgba(0, 245, 212, 0.2);
 }
-.slide-title {
-  font-size: 3.2rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin: 15px 0;
-  letter-spacing: -1px;
-  background: linear-gradient(135deg, #ffffff 40%, var(--light-turquoise));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+
+/* Texto de oferta balanceado y estilizado */
+.slide-title-centered {
+  font-size: 2.2rem; /* Más estilizado que el logo principal para darle jerarquía limpia */
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 20px 0;
+  letter-spacing: 0.5px;
+  color: #ffffff;
 }
-.slide-description {
-  font-size: 1rem;
+
+.slide-description-centered {
+  font-size: 1.05rem;
   color: #94a3b8;
-  line-height: 1.5;
-  margin-bottom: 25px;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 0 35px 0;
+  font-weight: 400;
 }
 
 .btn-starz-action {
   background: var(--light-turquoise);
   color: #020408;
   border: none;
-  padding: 14px 35px;
-  font-size: 0.9rem;
+  padding: 16px 40px;
+  font-size: 0.92rem;
   font-weight: 700;
-  border-radius: 6px;
+  border-radius: 30px;
   cursor: pointer;
-  box-shadow: 0 0 20px rgba(0, 245, 212, 0.3);
-  transition: all 0.2s;
+  box-shadow: 0 0 25px rgba(0, 245, 212, 0.4);
+  transition: all 0.25s;
 }
 .btn-starz-action:hover {
   background: #fff;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.5);
 }
 .btn-starz-action.VIP {
   background: linear-gradient(135deg, #00e5ff, #00f5d4);
 }
 
-.carousel-dots {
+/* 🔥 REFINAMIENTO DE LOS PUNTOS DE PAGINACIÓN INTERACTIVOS (SIEMPRE REDONDOS) */
+.carousel-dots-centered {
   position: absolute;
-  bottom: 30px;
-  left: 8%;
-  z-index: 5;
+  bottom: 35px;
+  width: 100%;
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  gap: 15px;
+  z-index: 5;
 }
 .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important; /* Estrictamente circular */
+  background: rgba(255, 255, 255, 0.25) !important;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
+
+/* Efecto de encendido y resplandor perimetral idéntico a las flashcards */
 .dot.active {
-  background: var(--light-turquoise);
-  width: 24px;
-  border-radius: 4px;
+  background: var(--light-turquoise) !important;
+  transform: scale(1.25);
+  box-shadow:
+    0 0 15px var(--light-turquoise),
+    0 0 8px rgba(0, 245, 212, 0.6) !important;
 }
 
 /* ==========================================================================
-   🖥️ COMPONENTE DEL PORTAL (MAPA DE LAS FASES PEDAGÓGICAS)
+   🖥️ COMPONENTE DEL PORTAL (DASHBOARD)
    ========================================================================== */
 .roadmap-space {
   width: 90%;
@@ -388,12 +429,6 @@ body {
   font-size: 3rem;
   font-weight: 800;
   margin: 0;
-}
-.hero-brand-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
 }
 .large-logo {
   padding: 8px 16px;
@@ -445,7 +480,6 @@ body {
   margin-bottom: 50px;
 }
 
-/* 💎 LAS FASHCARDS / PHASE CARDS CON COMPORTAMIENTO PREMIUM RESTAURADO */
 .phase-card {
   background: rgba(10, 25, 35, 0.4) !important;
   backdrop-filter: blur(20px) !important;
@@ -456,27 +490,20 @@ body {
   justify-content: space-between !important;
   min-height: 350px !important;
   box-sizing: border-box !important;
-
-  /* Borde nativo suavizado */
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6) !important;
-
-  /* Transición de alta velocidad */
   transition:
     transform 0.25s cubic-bezier(0.25, 1, 0.5, 1),
     border-color 0.25s cubic-bezier(0.25, 1, 0.5, 1),
     box-shadow 0.25s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
-/* 🔥 EFECTO HOVER RESPLANDOR VERDE TURQUESA DE LAS FLASHCARDS */
 .phase-card:hover {
-  transform: translateY(-8px) scale(1.01) !important; /* Movimiento fluido hacia arriba */
-  border-color: var(
-    --light-turquoise
-  ) !important; /* Se ilumina la orilla en verde esmeralda */
+  transform: translateY(-8px) scale(1.01) !important;
+  border-color: var(--light-turquoise) !important;
   box-shadow:
     0 20px 45px rgba(0, 0, 0, 0.8),
-    0 0 25px var(--neon-glow) !important; /* Lindo resplandor perimetral de alta gama */
+    0 0 25px var(--neon-glow) !important;
 }
 
 .phase-card-header {
@@ -540,10 +567,10 @@ body {
 }
 
 /* ==========================================================================
-   🌌 ARREGLO ABSOLUTO: REDES SOCIALES E INYECCIÓN GLOBAL DE LOS DOS FOOTERS
+   🌌 FOOTER NEUMÓRFICO UNIVERSAL
    ========================================================================== */
 .galaxy-footer {
-  width: 100% !important;
+  width: 95% !important;
   max-width: 1250px !important;
   background: rgba(10, 25, 35, 0.3) !important;
   backdrop-filter: blur(25px) !important;
@@ -590,10 +617,6 @@ body {
   color: var(--light-turquoise);
 }
 
-/* Fuerza absoluta para la botonera de redes sociales del portal y la landing */
-/* ==========================================================================
-   🌌 CONTROL ATÓMICO: BOTONERA DE REDES SOCIALES (HOVER FIX)
-   ========================================================================== */
 .footer-social {
   display: flex !important;
   gap: 12px !important;
@@ -601,7 +624,6 @@ body {
   padding: 0 !important;
 }
 
-/* Usamos la clase directa .social-link para evitar interferencias de herencia */
 .social-link {
   width: 38px !important;
   height: 38px !important;
@@ -616,7 +638,6 @@ body {
   text-decoration: none !important;
 }
 
-/* El encendido verde esmeralda exacto e infalible en ambas vistas */
 .social-link:hover {
   background: var(--light-turquoise) !important;
   box-shadow: 0 0 18px rgba(0, 245, 212, 0.6) !important;
@@ -624,5 +645,12 @@ body {
 }
 
 .social-link:hover i {
-  color: #020408 !important; /* Fuerza al icono interno a volverse negro oscuro */
+  color: #020408 !important;
+}
+.footer-bottom {
+  text-align: center;
+  font-size: 0.7rem;
+  color: #475569;
+  margin-top: 15px;
+  font-family: monospace;
 }
