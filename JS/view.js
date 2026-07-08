@@ -3,7 +3,7 @@ class RoadmapView {
     this.container = document.getElementById("roadmap-container");
     this.exerciseContainer = document.getElementById("fonetica-exercise-card");
 
-    // Vistas Core SPA
+    // Elementos Dinámicos SPA
     this.landingView = document.getElementById("view-landing");
     this.dashboardView = document.getElementById("view-dashboard");
     this.foneticaView = document.getElementById("view-fonetica");

@@ -5,11 +5,11 @@ class RoadmapController {
     this.slideActual = 0;
     this.isUserLoggedIn = false;
 
-    // Renderizado inicial
+    // Renderizado
     this.view.renderFases(this.model.getFases());
     this.view.renderGimnasia(this.model.getEjercicioActive());
 
-    // Vinculación de eventos
+    // Vinculación
     this.view.bindControlCarrusel(this.handleControlCarrusel.bind(this));
     this.view.bindSuscripcionPlanes(this.handleActivacionPortal.bind(this));
     this.view.bindNavegacionInterna(
@@ -18,7 +18,7 @@ class RoadmapController {
       () => this.handleRegresoHome(),
     );
 
-    // Auto-avance de ofertas en la Landing
+    // Intervalo
     this.carruselInterval = setInterval(() => {
       if (!this.isUserLoggedIn) {
         this.slideActual = (this.slideActual + 1) % 3;

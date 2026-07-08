@@ -1,5 +1,5 @@
 /* ==========================================================================
-   🌌 NEARNATIVEENGLISH - CORE DESIGNS & EXPERT STYLING (2026)
+   🌌 NEARNATIVEENGLISH - CORE DESIGNS & SYSTEM ARCHITECTURE (2026)
    ========================================================================== */
 
 :root {
@@ -161,14 +161,9 @@ body {
   font-size: 0.72rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s;
-}
-.user-status:hover {
-  background: #00e5ff !important;
-  color: #000000 !important;
 }
 
-/* 🧑‍🚀 WIDGET DE USUARIO CAPSULE SLIM */
+/* 🧑‍🚀 WIDGET CAPSULE SLIM */
 .user-profile-wrapper {
   display: flex;
   align-items: center;
@@ -209,7 +204,21 @@ body {
   text-transform: uppercase;
 }
 
-/* 🎬 LANDING ESCENARIO CINEMATOGRÁFICO */
+/* 🎬 ENVOLTURA CENTRAL DE CONTENIDOS SPA */
+.spa-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.view-section {
+  width: 100%;
+}
+.dynamic-hide {
+  display: none !important;
+}
+
+/* CARRUSEL STARZ */
 .starz-carousel {
   position: relative;
   width: 100vw;
@@ -367,7 +376,7 @@ body {
   box-shadow: 0 0 15px var(--light-turquoise);
 }
 
-/* 🖥️ COMPONENTE DEL PORTAL (MAPA ROADMAP Y CONDICIONAMIENTO) */
+/* 🖥️ COMPONENTE DEL PORTAL (MAPAS Y GRAFICOS) */
 .roadmap-space {
   width: 90%;
   max-width: 1200px;
@@ -429,7 +438,7 @@ body {
   margin-bottom: 50px;
 }
 
-/* 💎 CARD INTERACTIVO / FLASHCARDS CON RESPLANDOR PERIMETRAL */
+/* CARD INTERACTIVO CON MOVIMIENTO Y RESPLANDOR */
 .phase-card {
   background: rgba(10, 25, 35, 0.4) !important;
   backdrop-filter: blur(20px) !important;
@@ -513,7 +522,7 @@ body {
 }
 
 /* ==========================================================================
-   🏋️ COMPONENTE: MODULO DE GIMNASIA FONÉTICA
+   🏋️ COMPONENTE INTERACTIVO DE GIMNASIA FONÉTICA
    ========================================================================== */
 .fonetica-layout {
   display: grid;
@@ -600,10 +609,10 @@ body {
 }
 
 /* ==========================================================================
-   🌌 FOOTER NEUMÓRFICO DE PRESENCIA ABSOLUTA (CROSS-SPA)
+   🌌 FOOTER NEUMÓRFICO DE CONTROL INTEGRAL GLOBAL
    ========================================================================== */
 .galaxy-footer {
-  width: 100% !important;
+  width: 95% !important;
   max-width: 1250px !important;
   background: rgba(10, 25, 35, 0.3) !important;
   backdrop-filter: blur(25px) !important;
@@ -613,8 +622,8 @@ body {
   box-sizing: border-box !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
   margin: 50px auto 20px auto !important;
-  display: block !important;
 }
+
 .footer-content {
   display: flex;
   justify-content: space-between;
@@ -654,11 +663,8 @@ body {
   padding: 0 !important;
 }
 
-/* Inmunización estructural contra herencias cruzadas */
-body .social-link,
-#view-landing .social-link,
-#view-dashboard .social-link,
-#view-fonetica .social-link {
+/* 🌟 AISLAMIENTO ABSOLUTO: La clase .social-link ahora responde de forma directa */
+.social-link {
   width: 38px !important;
   height: 38px !important;
   border-radius: 10px !important;
@@ -668,20 +674,21 @@ body .social-link,
   align-items: center !important;
   justify-content: center !important;
   color: #94a3b8 !important;
-  transition: all 0.25s ease !important;
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1) !important;
   text-decoration: none !important;
 }
-body .social-link:hover,
-#view-landing .social-link:hover,
-#view-dashboard .social-link:hover,
-#view-fonetica .social-link:hover {
+
+/* El encendido neón esmeralda idéntico e inmune a las herencias SPA */
+.social-link:hover {
   background: var(--light-turquoise) !important;
   box-shadow: 0 0 18px rgba(0, 245, 212, 0.6) !important;
   transform: translateY(-3px) !important;
 }
-body .social-link:hover i {
-  color: #020408 !important;
+
+.social-link:hover i {
+  color: #020408 !important; /* Fuerza al icono interno a volverse negro puro */
 }
+
 .footer-bottom {
   text-align: center;
   font-size: 0.7rem;
